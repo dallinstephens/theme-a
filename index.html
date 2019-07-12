@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Theme 1</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap-3.4.1.min.css">
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="bootstrap/js/bootstrap-3.4.1.min.js"></script>
+
+  <style>
+
+  /* BEGIN WEBSITE HEADER */
+
+    /* logo positioning & styling */
+    #logo {
+      position: absolute;
+      top: 200px;
+      z-index: 1;
+      background-color: transparent;
+      color: #ffffff;
+      text-align: center;
+      width: 100%;
+    }
+
+    /* glyphicon */
+    #logo .glyphicon {
+      font-size: 80px;
+      border: 3px solid #ffffff;
+      padding: 7px;
+      border-radius: 49px;
+    }
+
+  /* END WEBSITE HEADER */
+
+  /* BEGIN SERVICES SECTION */
+
+    /* services jumbotron */
+    #services.jumbotron {
+      background-color: transparent;
+      color: #000000;
+      margin: 0;
+    }
+
+    /* bottom padding under each service */
+    #services.jumbotron .col-sm-4 {
+      padding-bottom: 20px;
+    }
+
+    /* glyphicons */
+    #services span.glyphicon {
+      font-size: 80px;
+    }
+
+    /* texture square background */
+    .texture-square {
+      position: absolute;
+      top: 5500px;
+      z-index: -1;
+      background-image: url("images/texture-square.jpg");
+      height: 3500px;
+      width: 100%;
+      background-position: center;
+      background-repeat: repeat;
+      background-size: 400px;
+    }
+
+  /* END SERVICES SECTION */
+
+  /* BEGIN OUR WORK SECTION */
+
+    /* BEGIN SLIDE IN OVERLAY FROM THE TOP */
+
+      .image {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .overlay {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        right: 0;
+        background-color: hsl(0, 0%, 20%, 0.4);
+        overflow: hidden;
+        width: 100%;
+        height:0;
+        transition: .5s ease;
+      }
+
+      #work > div > div > div:nth-child(1):hover .overlay,
+      #work > div > div > div:nth-child(2):hover .overlay,
+      #work > div > div > div:nth-child(3):hover .overlay,
+      #work > div > div > div:nth-child(4):hover .overlay,
+      #work > div > div > div:nth-child(5):hover .overlay,
+      #work > div > div > div:nth-child(6):hover .overlay {
+        bottom: 0;
+        height: 100%;
+      }
+
+      .text {
+        white-space: wrap;
+        line-height: 1.2;
+        color: white;
+        font-size: 20px;
+        position: absolute;
+        overflow: hidden;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+      }
+
+    /* END SLIDE IN OVERLAY FROM THE TOP */
+
+  /* END OUR WORK SECTION */
+
+  </style>
+
+  <script>
+
+  // BEGIN JQUERY DOCUMENT READY FUNCTION
+
+  $(document).ready(function(){
+
+  // BEGIN WEBSITE HEADER IMAGE FADES AS USER SCROLLS DOWN PAGE
+
+    var fadeStart=100, // 100px scroll or less will equiv to 1 opacity
+    fadeUntil=3200, // 3200px scroll or more will equiv to 0 opacity
+    fadeOut = $('#fadeOut');
+
+    $(window).bind('scroll', function(){
+      var offset = $(document).scrollTop(),
+      opacity = 0;
+
+      if (offset <= fadeStart) {
+        opacity = 1;
+      } else if (offset <= fadeUntil ){
+        opacity = 1 - offset/fadeUntil;
+      }
+      fadeOut.css('opacity',opacity);
+    });
+
+  // END WEBSITE HEADER IMAGE FADES AS USER SCROLLS DOWN PAGE
+
+  // BEGIN SERVICES SECTION
+
+    // move background texture image upon scroll position
+    var current = $(window).scrollTop();
+    var total = $(window).height() - current;
+    var ele = $(".scroll-move");
+    var currPosition = ele.position().top;
+    var trackLength = 1000;
+    $(window).scroll(function (event) {
+        current = $(window).scrollTop();
+        var newPosition = trackLength * (current/total)
+        ele.css({top:currPosition-newPosition+'px'});
+    });
+
+  // END SERVICES SECTION
+
+  });
+
+  // END JQUERY DOCUMENT READY FUNCTION
+
+  </script>
+
+</head>
+<body style="height:8000px">
+
+<!-- BEGIN NAVIGATION BAR -->
+
+<nav class="navbar navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+		<li><a href="#">Page 1</a></li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- END NAVIGATION BAR -->
+
+<!-- BEGIN WEBSITE HEADER -->
+
+<div id="logo">
+  <div class="glyphicon glyphicon-flash"></div>
+  <h2>COMPANY</h2>
+  <h4 style="text-transform: uppercase;">Lorem ipsum dolor sit amet</h4>
+</div>
+
+<img id="fadeOut" src="images/city.jpg" alt="City" style="position: fixed; top:0; height: 121%;" />
+
+<!-- END WEBSITE HEADER -->
+
+<!-- BEGIN SERVICES SECTION -->
+
+<!-- large orange block -->
+<div style="width:100%; height:2600px; background-color:#b32400;"></div>
+
+<div id="services" class="jumbotron">
+  <h2 class="text-center">SERVICES</h2>
+  <br />
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-hourglass"></span>
+        <h3>Time Efficient</h3>
+        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+      </div>
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-equalizer"></span>
+        <h3>Quality Assurance</h3>
+        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+      </div>
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-piggy-bank"></span>
+        <h3>Money Efficient</h3>
+        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- texture image background -->
+<div class="texture-square scroll-move"></div>
+
+<!-- END SERVICES SECTION -->
+
+<!-- BEGIN OUR WORK SECTION -->
+
+<div id="work" class="jumbotron" style="background-color:#ff3300;">
+  <h2 class="text-center">OUR WORK</h2>
+  <br />
+  <div class="container-fluid">
+    <div class="row text-center">
+      <!-- image 1 -->
+      <div class="col-sm-4" style="padding:0;">
+        <img src="images/island.jpg" style="width:100%" class="image" />
+        <div class="overlay">
+          <div class="text">
+            <h3>Image Title</h3>
+            <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+          </div>
+        </div>
+      </div>
+      <!-- image 2 -->
+      <div class="col-sm-4" style="padding:0;">
+        <img src="images/island.jpg" style="width:100%" class="image" />
+        <div class="overlay">
+          <div class="text">
+            <h3>Image Title</h3>
+            <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+          </div>
+        </div>
+      </div>
+      <!-- image 3 -->
+      <div class="col-sm-4" style="padding:0;">
+        <img src="images/island.jpg" style="width:100%" class="image" />
+        <div class="overlay">
+          <div class="text">
+            <h3>Image Title</h3>
+            <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+          </div>
+        </div>
+      </div>
+      <!-- image 4 -->
+      <div class="col-sm-4" style="padding:0;">
+        <img src="images/island.jpg" style="width:100%" class="image" />
+        <div class="overlay">
+          <div class="text">
+            <h3>Image Title</h3>
+            <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+          </div>
+        </div>
+      </div>
+      <!-- image 5 -->
+      <div class="col-sm-4" style="padding:0;">
+        <img src="images/island.jpg" style="width:100%" class="image" />
+        <div class="overlay">
+          <div class="text">
+            <h3>Image Title</h3>
+            <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+          </div>
+        </div>
+      </div>
+      <!-- image 6 -->
+      <div class="col-sm-4" style="padding:0;">
+        <img src="images/island.jpg" style="width:100%" class="image" />
+        <div class="overlay">
+          <div class="text">
+            <h3>Image Title</h3>
+            <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- END OUR WORK SECTION -->
+
+</body>
+</html>
