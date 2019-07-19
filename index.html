@@ -10,7 +10,132 @@
 
   <style>
 
+  /* theme colors css variables */
+  :root {
+    --theme-primary-color: #001a4d; /* theme color */
+    --theme-secondary-color: #ffffff; /* white if darker theme color, black if lighter theme color */
+  }
+
+  /* BEGIN ANIMATION: FADE IN ELEMENTS */
+
+    /* fade in animation element hidden initially */
+    .fadeIn-animation {visibility:hidden;}
+
+    /* fade in animation setup */
+    .fadeIn {
+      /* The name of the animation */
+      animation-name: fadeIn;
+      -webkit-animation-name: fadeIn;
+      /* The duration of the animation */
+      animation-duration: 3s;
+      -webkit-animation-duration: 3s;
+      /* Make the element visible */
+      visibility: visible;
+    }
+
+    /* Go from 0% to 100% opacity */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @-webkit-keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+  /* END ANIMATION: FADE IN ELEMENTS */
+
+  /* BEGIN NAVIGATION BAR */
+
+    /* navbar background-color */
+    .navbar {
+      background-color: #001a4d;
+    }
+
+    /* center navbar links */
+    .navbar .navbar-nav {
+      display: inline-block;
+      float: none;
+      vertical-align: top;
+    }
+
+    .navbar .navbar-collapse {
+      text-align: center;
+    }
+
+    /* add space between navbar links */
+    .navbar-nav > li {
+      padding-left:10px;
+      padding-right:10px;
+    }
+
+    /* Link */
+    .navbar-nav > li > a {
+      color: #ffffff;
+    }
+    .navbar-nav > li > a:hover,
+    .navbar-nav > li > a:focus {
+      color: #001a4d;
+      background-color: #ffffff;
+    }
+
+    /* mobile */
+    .navbar-toggle .icon-bar {
+      background-color: #ffffff;
+    }
+
+    .navbar-toggle:hover .icon-bar {
+      background-color: #001a4d;
+    }
+
+    .navbar-toggle:hover {
+      background-color: #ffffff;
+    }
+
+    /* highlight link full screen width when hovering */
+    @media only screen and (max-width: 767px){
+      .navbar .navbar-nav {
+        display: block;
+      }
+    }
+
+  /* END NAVIGATION BAR */
+
   /* BEGIN WEBSITE HEADER */
+
+    /* starting image which fades */
+    #fadeOut {
+      position: fixed;
+      top:0px;
+      margin: 0 -4%;
+      width: 110%;
+    }
+
+    /* image tall enough with medium screens */
+    @media only screen and (max-width: 991px){
+      #fadeOut {
+        top: -10px;
+        margin: 0 -48.5%;
+        width: 200%;
+      }
+    }
+
+    /* image tall enough with extra small screens */
+    @media only screen and (max-width: 600px){
+      #fadeOut {
+        top: 40px;
+        margin: 0 -73%;
+        width: 250%;
+      }
+    }
 
     /* logo positioning & styling */
     #logo {
@@ -35,68 +160,99 @@
 
   /* BEGIN SERVICES SECTION */
 
-    /* services jumbotron */
-    #services.jumbotron {
+    /* home jumbotron */
+    #home.jumbotron {
       background-color: transparent;
-      color: #000000;
+      color: #001a4d;
       margin: 0;
     }
 
     /* bottom padding under each service */
-    #services.jumbotron .col-sm-4 {
+    #home.jumbotron .col-sm-4 {
       padding-bottom: 20px;
     }
 
     /* glyphicons */
-    #services span.glyphicon {
+    #home span.glyphicon {
       font-size: 80px;
+    }
+
+    /* h5 text */
+    #services h5 {
+      max-width: 300px;
+      margin: auto;
+      line-height: 1.5;
     }
 
     /* texture square background */
     .texture-square {
-      position: absolute;
-      top: 5500px;
-      z-index: -1;
       background-image: url("images/texture-square.jpg");
-      height: 3500px;
-      width: 100%;
       background-position: center;
       background-repeat: repeat;
-      background-size: 400px;
+      background-size: 200px;
     }
 
   /* END SERVICES SECTION */
 
   /* BEGIN OUR WORK SECTION */
 
-    /* BEGIN SLIDE IN OVERLAY FROM THE TOP */
+    /* jumbotron */
+    #work.jumbotron {
+      padding: 50px 0 200px 0;
+      margin-bottom:0;
+    }
+
+    /* BEGIN IMAGE FADE IN BOX */
 
       .image {
+        opacity: 1;
         display: block;
         width: 100%;
         height: auto;
-      }
-
-      .overlay {
-        position: absolute;
-        bottom: 100%;
-        left: 0;
-        right: 0;
-        background-color: hsl(0, 0%, 20%, 0.4);
-        overflow: hidden;
-        width: 100%;
-        height:0;
         transition: .5s ease;
+        backface-visibility: hidden;
       }
 
-      #work > div > div > div:nth-child(1):hover .overlay,
-      #work > div > div > div:nth-child(2):hover .overlay,
-      #work > div > div > div:nth-child(3):hover .overlay,
-      #work > div > div > div:nth-child(4):hover .overlay,
-      #work > div > div > div:nth-child(5):hover .overlay,
-      #work > div > div > div:nth-child(6):hover .overlay {
-        bottom: 0;
-        height: 100%;
+      .middle {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        width: 100%;
+      }
+
+      #work > div > div > div:nth-child(1):hover .image,
+      #work > div > div > div:nth-child(2):hover .image,
+      #work > div > div > div:nth-child(3):hover .image,
+      #work > div > div > div:nth-child(4):hover .image,
+      #work > div > div > div:nth-child(5):hover .image,
+      #work > div > div > div:nth-child(6):hover .image {
+        opacity: 0.5;
+      }
+
+      #work > div > div > div:nth-child(1):hover .middle,
+      #work > div > div > div:nth-child(2):hover .middle,
+      #work > div > div > div:nth-child(3):hover .middle,
+      #work > div > div > div:nth-child(4):hover .middle,
+      #work > div > div > div:nth-child(5):hover .middle,
+      #work > div > div > div:nth-child(6):hover .middle {
+        opacity: 1;
+      }
+
+      #work .btn {
+        margin: 17px 0;
+        background-color: transparent;
+        border: 1px solid #ffffff;
+        color: #ffffff;
+      }
+
+      #work .btn:hover {
+        border: 1px solid #ffffff;
+        background-color: #ffffff;
+        color: #001a4d;
       }
 
       .text {
@@ -112,9 +268,509 @@
         -ms-transform: translate(-50%, -50%);
       }
 
-    /* END SLIDE IN OVERLAY FROM THE TOP */
+    /* END IMAGE FADE IN BOX */
+
+    /* hand cursor */
+    #work > div > div > div:nth-child(1),
+    #work > div > div > div:nth-child(2),
+    #work > div > div > div:nth-child(3),
+    #work > div > div > div:nth-child(4),
+    #work > div > div > div:nth-child(5),
+    #work > div > div > div:nth-child(6) {
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
   /* END OUR WORK SECTION */
+
+  /* BEGIN ABOUT SECTION */
+
+    /* texture square background */
+    .texture-square-variation {
+      background-image: url("images/texture-square-variation.jpg");
+      background-position: center;
+      background-repeat: repeat;
+      background-size: 150px;
+    }
+
+  /* END ABOUT SECTION */
+
+  /* BEGIN CONTACT SECTION */
+
+    /* Fixes color of phone number on mobile devices */
+    a[href^=tel] {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    #contact .btn {
+      background-color: #001a4d;
+      color: #ffffff;
+    }
+
+    #contact .btn:hover {
+      background-color: #4d88ff;
+      color: #ffffff;
+    }
+
+    @media only screen and (max-width: 991px){
+      #contact-details {
+        text-align: center;
+      }
+    }
+
+  /* END CONTACT SECTION */
+
+  /* BEGIN OUR WORK SECTION IMAGE MODAL */
+
+    /* The Modal (background) */
+    #workImageModal.modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 10000; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: #ffffff; /* White */
+    }
+
+    /* Modal Content (image) */
+    .modal-content {
+      display: block;
+      width: 100%;
+    }
+
+    /* Add Animation */
+    .modal-content {
+      -webkit-animation-name: zoom;
+      -webkit-animation-duration: 0.6s;
+      animation-name: zoom;
+      animation-duration: 0.6s;
+    }
+
+    @-webkit-keyframes zoom {
+      from {-webkit-transform: scale(0)}
+      to {-webkit-transform: scale(1)}
+    }
+
+    @keyframes zoom {
+      from {transform: scale(0.1)}
+      to {transform: scale(1)}
+    }
+
+    /* full page glyphicon button */
+    #workImageModal > .glyphicon {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      margin: 0;
+      padding: 23px;
+      color: #777777;
+      font-size: 35px;
+      transition: 0.3s;
+      /* same color as bootstrap close button */
+      opacity: 0.4;
+    }
+
+    #workImageModal > .glyphicon:hover,
+    #workImageModal > .glyphicon:focus {
+      background-color: #777777;
+      color: #ffffff;
+      border-radius: 15px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* The Close Button */
+    #workImageModal > .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      margin: 0;
+      padding: 0 20px;
+      color: #777777;
+      font-size: 80px;
+      transition: 0.3s;
+    }
+
+    #workImageModal > .close:hover,
+    #workImageModal > .close:focus {
+      background-color: #777777;
+      color: #ffffff;
+      border-radius: 15px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* position carousel previous & next arrows outside of image */
+    .carousel-control.left {
+      margin-left: -90px;
+      background: none;
+      color: #777777;
+    }
+
+    .carousel-control.right {
+      margin-right: -90px;
+      background: none;
+      color: #777777;
+    }
+
+    /* position carousel circle indicators below image */
+    .carousel-indicators {
+      bottom:-50px;
+    }
+
+    /* change color of carousel circle indicators */
+      .carousel-indicators li {
+        border-color: #777777;
+      }
+
+      .carousel-indicators .active {
+        background-color: #777777;
+      }
+
+    /* 100% Image Width on Smaller Screens */
+    @media only screen and (max-width: 767px){
+      .modal-content {
+        width: 100%;
+      }
+      .carousel-control.left {
+        margin-left: 0px;
+        color: #ffffff;
+      }
+      .carousel-control.right {
+        margin-right: 0px;
+        color: #ffffff;
+      }
+      .carousel-indicators {
+        bottom:0px;
+      }
+      .carousel-indicators li {
+        border-color: #ffffff;
+      }
+
+      .carousel-indicators .active {
+        background-color: #ffffff;
+      }
+    }
+
+    /* for caption in full screen */
+    .fullScreen {
+      text-align: center;
+      width: 100%;
+      padding-top: 30px;
+    }
+
+  /* END OUR WORK SECTION IMAGE MODAL */
+
+  /* BEGIN BIG IMAGE 1 */
+
+    #big-image-1 {
+      background-image: url("images/team-collaboration-men.jpg");
+      min-height: 570px;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+
+    @media only screen and (max-width: 767px){
+      #big-image-1 {
+        background-position: 61%;
+        background-size: 207%;
+      }
+    }
+
+  /* END BIG IMAGE 1 */
+
+  /* BEGIN BIG IMAGE 2 */
+
+    #big-image-2 {
+      background-image: url("images/team-collaboration-women.jpg");
+      min-height: 570px;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+
+    @media only screen and (max-width: 767px){
+      #big-image-2 {
+        background-position: 73%;
+        background-size: 230%;
+      }
+    }
+
+  /* END BIG IMAGE 2 */
+
+  /* BEGIN BIG IMAGE 3 */
+
+    #big-image-3 {
+      background-image: url("images/code.jpg");
+      min-height: 570px;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+
+    @media only screen and (max-width: 767px){
+      #big-image-3 {
+        background-position: 73%;
+        background-size: 230%;
+      }
+    }
+
+  /* END BIG IMAGE 2 */
+
+  /* BEGIN SIGN UP MODAL: Sign up modal opens upon click of navbar sign up link. */
+
+    /* BEGIN SIGN UP MODAL HEADER */
+
+      /* sign up modal header background-color & text color and title h4 background-color & text color */
+      #sign-up .modal-header, #sign-up h4 {
+        background-color: var(--theme-primary-color);
+        color: var(--theme-secondary-color) !important;
+      }
+
+      /* sign up modal header link color & underlined link */
+      #sign-up .modal-header a {
+        color: var(--theme-secondary-color);
+        text-decoration: underline;
+      }
+
+      /* sign up modal header hover link background-color & hover text color */
+      #sign-up .modal-header a:hover {
+        background-color: var(--theme-secondary-color);
+        color: var(--theme-primary-color);
+      }
+
+      /* sign up modal header close button styling */
+      #sign-up .close {
+        opacity: 1;
+        padding: 5px 7px;
+        color: var(--theme-secondary-color) !important;
+        border: 1px solid var(--theme-secondary-color);
+      }
+
+      /* sign up modal header close button hover background-color & hover text color */
+      #sign-up .close:hover {
+        background-color: var(--theme-secondary-color);
+        color: var(--theme-primary-color) !important;
+      }
+
+    /* END SIGN UP MODAL HEADER */
+
+    /* BEGIN SIGN UP MODAL BODY */
+
+      /* sign up modal body background-color */
+      #sign-up .modal-body {
+        background-color: #f2f2f2;
+      }
+
+      /* sign up modal body button styling */
+      #sign-up .modal-body .btn-color {
+        background-color: var(--theme-primary-color);
+        color: var(--theme-secondary-color);
+        border: 1px solid var(--theme-secondary-color);
+      }
+
+      /* sign up modal body button hover styling */
+      #sign-up .modal-body .btn-color:hover {
+        background-color: var(--theme-secondary-color);
+        color: var(--theme-primary-color);
+        border: 1px solid var(--theme-primary-color);
+      }
+
+    /* END SIGN UP MODAL BODY */
+
+    /* BEGIN SIGN UP MODAL FOOTER */
+
+      /* sign up modal footer background-color & text color */
+      #sign-up .modal-footer {
+        background-color: var(--theme-primary-color);
+        color: var(--theme-secondary-color);
+      }
+
+      /* sign up modal footer button styling */
+      #sign-up .modal-footer .btn-color {
+        background-color: var(--theme-primary-color);
+        color: var(--theme-secondary-color);
+        border: 1px solid var(--theme-secondary-color);
+      }
+
+      /* sign up modal footer button hover styling */
+      #sign-up .modal-footer .btn-color:hover {
+        background-color: var(--theme-secondary-color);
+        color: var(--theme-primary-color);
+      }
+
+      /* END SIGN UP MODAL FOOTER */
+
+  /* END SIGN UP MODAL: Sign up modal opens upon click of navbar sign up link. */
+
+  /* BEGIN LOGIN MODAL: Login modal opens upon click of navbar login link. */
+
+    /* BEGIN LOGIN MODAL HEADER */
+
+      /* login modal header background-color & text color and title h4 background-color & text color */
+      #login .modal-header, #login h4 {
+        background-color: var(--theme-primary-color);
+        color: var(--theme-secondary-color) !important;
+        text-align: center;
+        font-size: 30px;
+      }
+
+      /* login modal header close button styling */
+      #login .close {
+        opacity: 1;
+        padding: 5px 7px;
+        color: var(--theme-secondary-color) !important;
+        border: 1px solid var(--theme-secondary-color);
+      }
+
+      /* login modal header close button hover background-color & hover text color */
+      #login .close:hover {
+        background-color: var(--theme-secondary-color);
+        color: var(--theme-primary-color) !important;
+      }
+
+    /* END LOGIN MODAL HEADER */
+
+    /* BEGIN LOGIN MODAL BODY */
+
+      /* login modal body background-color */
+      #login .modal-body {
+        background-color: #ffffff;
+      }
+
+      /* login modal body button styling */
+      #login .modal-body .btn-color {
+        background-color: var(--theme-primary-color);
+        color: var(--theme-secondary-color);
+      }
+
+      /* login modal body button hover styling */
+      #login .modal-body .btn-color:hover {
+        background-color: var(--theme-secondary-color);
+        color: var(--theme-primary-color);
+        border: 1px solid var(--theme-primary-color);
+      }
+
+    /* END LOGIN MODAL BODY */
+
+    /* BEGIN LOGIN MODAL FOOTER */
+
+      /* login modal footer background-color & text color */
+      #login .modal-footer {
+        background-color: var(--theme-primary-color);
+        color: var(--theme-secondary-color);
+      }
+
+      /* login modal footer button styling */
+      #login .modal-footer .btn-color {
+        background-color: var(--theme-primary-color);
+        color: var(--theme-secondary-color);
+        border: 1px solid var(--theme-secondary-color);
+      }
+
+      /* login modal footer button hover styling */
+      #login .modal-footer .btn-color:hover {
+        background-color: var(--theme-secondary-color);
+        color: var(--theme-primary-color);
+      }
+
+      /* login modal footer forgot "password" link color & underlined link */
+      #login .modal-footer a {
+        color: var(--theme-secondary-color);
+        text-decoration: underline;
+      }
+
+      /* login modal footer hover link background-color & hover text color */
+      #login .modal-footer a:hover {
+        background-color: var(--theme-secondary-color);
+        color: var(--theme-primary-color);
+      }
+
+    /* END LOGIN MODAL FOOTER */
+
+  /* END LOGIN MODAL: Login modal opens upon click of navbar login link. */
+
+  /* BEGIN FORGOT PASSWORD MODAL: Forgot password modal opens upon click of link. */
+
+    /* BEGIN FORGOT PASSWORD MODAL HEADER */
+
+      /* forgot password modal header background-color & text color and title h4 background-color & text color */
+      #forgot-password .modal-header, #forgot-password h4 {
+        background-color: var(--theme-primary-color);
+        color: var(--theme-secondary-color) !important;
+      }
+
+      /* forgot password modal header close button styling */
+      #forgot-password .close {
+        opacity: 1;
+        padding: 5px 7px;
+        color: var(--theme-secondary-color) !important;
+        border: 1px solid var(--theme-secondary-color);
+      }
+
+      /* forgot password modal header close button hover background-color & hover text color */
+      #forgot-password .close:hover {
+        background-color: var(--theme-secondary-color);
+        color: var(--theme-primary-color) !important;
+      }
+
+    /* END FORGOT PASSWORD MODAL HEADER */
+
+    /* BEGIN FORGOT PASSWORD MODAL BODY */
+
+      /* forgot password modal body background-color */
+      #forgot-password .modal-body {
+        background-color: #f2f2f2;
+      }
+
+      /* forgot password modal body button styling */
+      #forgot-password .modal-body .btn-color {
+        background-color: var(--theme-primary-color);
+        color: var(--theme-secondary-color);
+      }
+
+      /* forgot password modal body button hover styling */
+      #forgot-password .modal-body .btn-color:hover {
+        background-color: var(--theme-secondary-color);
+        color: var(--theme-primary-color);
+        border: 1px solid var(--theme-primary-color);
+      }
+
+    /* END FORGOT PASSWORD MODAL BODY */
+
+    /* BEGIN FORGOT PASSWORD MODAL FOOTER */
+
+      /* forgot password modal footer background-color & text color */
+      #forgot-password .modal-footer {
+        background-color: var(--theme-primary-color);
+        color: var(--theme-secondary-color);
+      }
+
+      /* forgot password modal footer button styling */
+      #forgot-password .modal-footer .btn-color {
+        background-color: var(--theme-primary-color);
+        color: var(--theme-secondary-color);
+        border: 1px solid var(--theme-secondary-color);
+      }
+
+      /* forgot password modal footer button hover styling */
+      #forgot-password .modal-footer .btn-color:hover {
+        background-color: var(--theme-secondary-color);
+        color: var(--theme-primary-color);
+      }
+
+    /* END FORGOT PASSWORD MODAL FOOTER */
+
+  /* END FORGOT PASSWORD MODAL: Forgot password modal opens upon click of link. */
 
   </style>
 
@@ -124,10 +780,100 @@
 
   $(document).ready(function(){
 
+    // BEGIN ANIMATION: FADE IN ELEMENTS
+
+      $(window).scroll(function() {
+        $(".fadeIn-animation").each(function(){
+          var pos = $(this).offset().top;
+
+          var winTop = $(window).scrollTop();
+          if (pos < winTop + 600) {
+            $(this).addClass("fadeIn");
+          }
+          // resets when moved above fade in animation - allows for repeated fade in animation
+          else if (pos > winTop + 1000) {
+            $(this).removeClass("fadeIn");
+          }
+          else if (pos < 1000){
+            $(this).removeClass("fadeIn");
+          }
+        });
+      });
+
+    // END ANIMATION: FADE IN ELEMENTS
+
+  });
+
+  // END JQUERY DOCUMENT READY FUNCTION
+
+  // BEGIN SMOOTH SCROLLING
+
+    $(document).ready(function(){
+      // Add smooth scrolling to all links in navbar + footer link
+      $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== ""){
+          // Prevent default anchor click behavior
+          event.preventDefault();
+
+          // Store hash
+          var hash = this.hash;
+
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 900, function(){
+
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          });
+        } // End if
+      });
+    })
+
+  // END SMOOTH SCROLLING
+
+  // BEGIN PARALLAX: moves background texture images.
+
+    // Y axis scroll speed
+    var velocity = 0.5;
+
+    function update(){
+        var pos = $(window).scrollTop();
+        $('.parallax').each(function() {
+            var $element = $(this);
+            // subtract some from the height b/c of the padding
+            var height = $element.height()-18;
+            $(this).css('backgroundPosition', '50% ' + Math.round((height - pos) * velocity) + 'px');
+        });
+    };
+
+    $(window).bind('scroll', update);
+
+  // END PARALLAX: moves background texture images.
+
+  // BEGIN NAVIGATION BAR
+
+  $(document).ready(function(){
+
+      // close myNavbar when link (about, services, portfolio, pricing, contact, sign up, or login) clicked on smaller screen
+      $('.navbar-collapse a').click(function(){
+        $(".navbar-collapse").collapse('hide');
+      });
+
+  });
+
+  // END NAVIGATION BAR
+
+  // BEGIN JQUERY DOCUMENT READY FUNCTION
+
+  $(document).ready(function(){
+
   // BEGIN WEBSITE HEADER IMAGE FADES AS USER SCROLLS DOWN PAGE
 
     var fadeStart=100, // 100px scroll or less will equiv to 1 opacity
-    fadeUntil=3200, // 3200px scroll or more will equiv to 0 opacity
+    fadeUntil=1600, // 1600px scroll or more will equiv to 0 opacity
     fadeOut = $('#fadeOut');
 
     $(window).bind('scroll', function(){
@@ -139,35 +885,133 @@
       } else if (offset <= fadeUntil ){
         opacity = 1 - offset/fadeUntil;
       }
+
       fadeOut.css('opacity',opacity);
     });
 
   // END WEBSITE HEADER IMAGE FADES AS USER SCROLLS DOWN PAGE
 
-  // BEGIN SERVICES SECTION
+  });
 
-    // move background texture image upon scroll position
-    var current = $(window).scrollTop();
-    var total = $(window).height() - current;
-    var ele = $(".scroll-move");
-    var currPosition = ele.position().top;
-    var trackLength = 1000;
-    $(window).scroll(function (event) {
-        current = $(window).scrollTop();
-        var newPosition = trackLength * (current/total)
-        ele.css({top:currPosition-newPosition+'px'});
-    });
+  // END JQUERY DOCUMENT READY FUNCTION
 
-  // END SERVICES SECTION
+  // BEGIN JQUERY DOCUMENT READY FUNCTION
+
+  $(document).ready(function(){
+
+    // BEGIN SIGN UP MODAL
+
+      // sign up modal: open sign up modal upon click of sign up link located in login modal
+      $("#open-sign-up").click(function(){
+        $("#login").modal("hide");
+        setTimeout(function(){
+          $("#sign-up").modal("show");
+        }, 1000);
+      });
+
+    // END SIGN UP MODAL
+
+    // BEGIN LOGIN MODAL
+
+      // login modal: open login modal upon click of login link located in sign up modal
+      $("#open-login").click(function(){
+        $("#sign-up").modal("hide");
+        setTimeout(function(){
+          $("#login").modal("show");
+        }, 1000);
+      });
+
+    // END LOGIN MODAL
+
+    // BEGIN FORGOT PASSWORD MODAL
+
+      // forgot password modal: open forgot password modal upon click of forgot password link located in login modal
+      $("#open-forgot-password").click(function(){
+        $("#login").modal("hide");
+        setTimeout(function(){
+          $("#forgot-password").modal("show");
+        }, 1000);
+      });
+
+    // END FORGOT PASSWORD MODAL
 
   });
 
   // END JQUERY DOCUMENT READY FUNCTION
 
+  // BEGIN OUR WORK SECTION IMAGE MODAL
+
+    function openWorkImageModal(indicatorNumber) {
+      // Get the images and insert them inside the modal carousel
+      document.getElementById('workImageModal').style.display = "block";
+      document.getElementById("img01").src = document.getElementById('myImg1').src;
+      document.getElementById("img02").src = document.getElementById('myImg2').src;
+      document.getElementById("img03").src = document.getElementById('myImg3').src;
+      document.getElementById("img04").src = document.getElementById('myImg4').src;
+      document.getElementById("img05").src = document.getElementById('myImg5').src;
+      document.getElementById("img06").src = document.getElementById('myImg6').src;
+
+      // remove fadeIn effect when modal opens
+      $("#myCarousel").removeClass("slide");
+
+      // enable carousel indicator for image that was selected
+      $("#myCarousel").carousel(indicatorNumber);
+
+      // add slide effect back in after modal opens so that when carousel previous or next arrows or indicators are clicked, the slide effect works
+      $("#myCarousel").addClass("slide");
+    }
+
+    $(document).ready(function(){
+
+      // move carousel caption outside of image
+      $('.carousel').carousel();
+      var caption = $('div.item:nth-child(1) .carousel-caption');
+      $('.new-caption-area').html(caption.html());
+      // hides caption on image
+      caption.css('display', 'none');
+
+      $(".carousel").on('slide.bs.carousel', function (evt) {
+        var caption = $('div.item:nth-child(' + ($(evt.relatedTarget).index() + 1) + ') .carousel-caption');
+        $('.new-caption-area').html(caption.html());
+        caption.css('display', 'none');
+      });
+
+    });
+
+    function fullScreen() {
+      // move carousel caption under image and center it
+      $("#workImageModal .col-sm-4").addClass("fullScreen");
+
+  	// change .col-sm-6 to .col-sm-10
+      $("#workImageModal .col-sm-6").addClass("col-sm-10");
+      $("#workImageModal .col-sm-10").removeClass("col-sm-6");
+
+   	// hide .glyphicon-resize-full and show .glyphicon-resize-small
+      $("#workImageModal .glyphicon-resize-full").addClass("hidden");
+      $("#workImageModal .glyphicon-resize-small").removeClass("hidden");
+
+    }
+
+    function regularScreen() {
+      // move caption back to where it was on regular screen
+      $("#workImageModal .col-sm-4").removeClass("fullScreen");
+
+  	// change .col-sm-10 to .col-sm-6
+      $("#workImageModal .col-sm-10").addClass("col-sm-6");
+      $("#workImageModal .col-sm-6").removeClass("col-sm-10");
+
+   	// show .glyphicon-resize-full and hide .glyphicon-resize-small
+      $("#workImageModal .glyphicon-resize-full").removeClass("hidden");
+      $("#workImageModal .glyphicon-resize-small").addClass("hidden");
+
+    }
+
+  // END OUR WORK SECTION IMAGE MODAL
+
   </script>
 
 </head>
-<body style="height:8000px">
+<body>
 
 <!-- BEGIN NAVIGATION BAR -->
 
@@ -179,18 +1023,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">WebSiteName</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-		<li><a href="#">Page 1</a></li>
-        <li><a href="#">Page 2</a></li>
-        <li><a href="#">Page 3</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li class="active"><a href="#home">HOME</a></li>
+		    <li><a href="#services">SERVICES</a></li>
+        <li><a href="#work">OUR WORK</a></li>
+        <li><a href="#about">ABOUT US</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
       </ul>
     </div>
   </div>
@@ -206,108 +1047,148 @@
   <h4 style="text-transform: uppercase;">Lorem ipsum dolor sit amet</h4>
 </div>
 
-<img id="fadeOut" src="images/city.jpg" alt="City" style="position: fixed; top:0; height: 121%;" />
+<img id="fadeOut" src="images/city.jpg" alt="City" />
 
 <!-- END WEBSITE HEADER -->
 
 <!-- BEGIN SERVICES SECTION -->
 
-<!-- large orange block -->
-<div style="width:100%; height:2600px; background-color:#b32400;"></div>
-
-<div id="services" class="jumbotron">
-  <h2 class="text-center">SERVICES</h2>
-  <br />
-  <div class="container">
-    <div class="row text-center">
-      <div class="col-sm-4">
-        <span class="glyphicon glyphicon-hourglass"></span>
-        <h3>Time Efficient</h3>
-        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+<div id="home" class="parallax texture-square jumbotron">
+  <div id="services" style="margin: 2000px 0 100px 0;">
+    <br /><br /><br />
+    <h2 class="text-center">SERVICES</h2>
+    <br />
+    <div class="container">
+      <div class="row text-center" style="margin-top:20px;">
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-hourglass"></span>
+          <div class="fadeIn-animation">
+            <h3>Time Efficient</h3>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-equalizer"></span>
+          <div class="fadeIn-animation">
+            <h3>Quality Assurance</h3>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-piggy-bank"></span>
+          <div class="fadeIn-animation">
+            <h3>Money Efficient</h3>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+          </div>
+        </div>
       </div>
-      <div class="col-sm-4">
-        <span class="glyphicon glyphicon-equalizer"></span>
-        <h3>Quality Assurance</h3>
-        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
-      </div>
-      <div class="col-sm-4">
-        <span class="glyphicon glyphicon-piggy-bank"></span>
-        <h3>Money Efficient</h3>
-        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+      <div class="row text-center" style="margin-top:20px;">
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-cloud"></span>
+          <div class="fadeIn-animation">
+            <h3>Imagination</h3>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-eye-open"></span>
+          <div class="fadeIn-animation">
+            <h3>Vision</h3>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-pencil"></span>
+          <div class="fadeIn-animation">
+            <h3>Solutions</h3>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- texture image background -->
-<div class="texture-square scroll-move"></div>
-
 <!-- END SERVICES SECTION -->
 
 <!-- BEGIN OUR WORK SECTION -->
 
-<div id="work" class="jumbotron" style="background-color:#ff3300;">
+<div id="work" class="jumbotron" style="background-color:#001a4d; color: #ffffff">
   <h2 class="text-center">OUR WORK</h2>
-  <br />
-  <div class="container-fluid">
+  <hr style="width:50px; height:3px; background-color: #ffffff" />
+  <h4 class="text-center">Lorem ipsum dolor sit amet</h4>
+  <br /><br /><br />
+  <div class="container">
     <div class="row text-center">
       <!-- image 1 -->
-      <div class="col-sm-4" style="padding:0;">
-        <img src="images/island.jpg" style="width:100%" class="image" />
-        <div class="overlay">
+      <div class="col-md-4 col-sm-6 fadeIn-animation" style="padding:0;" onclick="openWorkImageModal(0)">
+        <img id="myImg1" src="images/coding-desk.jpg" style="width:100%" class="image" />
+        <div class="middle">
           <div class="text">
-            <h3>Image Title</h3>
+            <h3>Image Title 1</h3>
             <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+            <br />
+            <button type="button" class="btn">Click Here</button>
           </div>
         </div>
       </div>
       <!-- image 2 -->
-      <div class="col-sm-4" style="padding:0;">
-        <img src="images/island.jpg" style="width:100%" class="image" />
-        <div class="overlay">
+      <div class="col-md-4 col-sm-6 fadeIn-animation" style="padding:0;" onclick="openWorkImageModal(1)">
+        <img id="myImg2" src="images/man-coding-1.jpg" style="width:100%" class="image" />
+        <div class="middle">
           <div class="text">
-            <h3>Image Title</h3>
+            <h3>Image Title 2</h3>
             <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+            <br />
+            <button type="button" class="btn">Click Here</button>
           </div>
         </div>
       </div>
       <!-- image 3 -->
-      <div class="col-sm-4" style="padding:0;">
-        <img src="images/island.jpg" style="width:100%" class="image" />
-        <div class="overlay">
+      <div class="col-md-4 col-sm-6 fadeIn-animation" style="padding:0;" onclick="openWorkImageModal(2)">
+        <img id="myImg3" src="images/man-coding-2.jpg" style="width:100%" class="image" />
+        <div class="middle">
           <div class="text">
-            <h3>Image Title</h3>
+            <h3>Image Title 3</h3>
             <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+            <br />
+            <button type="button" class="btn">Click Here</button>
           </div>
         </div>
       </div>
       <!-- image 4 -->
-      <div class="col-sm-4" style="padding:0;">
-        <img src="images/island.jpg" style="width:100%" class="image" />
-        <div class="overlay">
+      <div class="col-md-4 col-sm-6 fadeIn-animation" style="padding:0;" onclick="openWorkImageModal(3)">
+        <img id="myImg4" src="images/man-coding-3.jpg" style="width:100%" class="image" />
+        <div class="middle">
           <div class="text">
-            <h3>Image Title</h3>
+            <h3>Image Title 4</h3>
             <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+            <br />
+            <button type="button" class="btn">Click Here</button>
           </div>
         </div>
       </div>
       <!-- image 5 -->
-      <div class="col-sm-4" style="padding:0;">
-        <img src="images/island.jpg" style="width:100%" class="image" />
-        <div class="overlay">
+      <div class="col-md-4 col-sm-6 fadeIn-animation" style="padding:0;" onclick="openWorkImageModal(4)">
+        <img id="myImg5" src="images/man-coding-4.jpg" style="width:100%" class="image" />
+        <div class="middle">
           <div class="text">
-            <h3>Image Title</h3>
+            <h3>Image Title 5</h3>
             <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+            <br />
+            <button type="button" class="btn">Click Here</button>
           </div>
         </div>
       </div>
       <!-- image 6 -->
-      <div class="col-sm-4" style="padding:0;">
-        <img src="images/island.jpg" style="width:100%" class="image" />
-        <div class="overlay">
+      <div class="col-md-4 col-sm-6 fadeIn-animation" style="padding:0;" onclick="openWorkImageModal(5)">
+        <img id="myImg6" src="images/mobile-friendly.jpg" style="width:100%" class="image" />
+        <div class="middle">
           <div class="text">
-            <h3>Image Title</h3>
+            <h3>Image Title 6</h3>
             <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+            <br />
+            <button type="button" class="btn">Click Here</button>
           </div>
         </div>
       </div>
@@ -316,6 +1197,322 @@
 </div>
 
 <!-- END OUR WORK SECTION -->
+
+<!-- BEGIN BIG IMAGE 1 SECTION -->
+<div id="big-image-1"></div>
+<!-- END BIG IMAGE 1 SECTION -->
+
+<!-- BEGIN ABOUT SECTION -->
+
+<div id="about" class="container-fluid parallax texture-square-variation">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 jumbotron fadeIn-animation" style="margin: 150px 20px; background-color: #ffffff; color: #001a4d">
+      <h2 class="text-center">ABOUT US</h2>
+      <hr style="width:50px; height:3px; background-color: #001a4d;" />
+      <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br /><br />Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+</div>
+
+<!-- END ABOUT SECTION -->
+
+<!-- BEGIN BIG IMAGE 2 SECTION -->
+<div id="big-image-2"></div>
+<!-- END BIG IMAGE 2 SECTION -->
+
+<!-- BEGIN CONTACT SECTION -->
+
+<div id="contact" class="container-fluid parallax texture-square-variation">
+  <div class="row" style="margin:0;">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <img src="images/clean-coding.png" style="width:100%;" />
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 jumbotron fadeIn-animation" style="margin: 0px 20px 150px 20px; background-color: #ffffff; color: #001a4d">
+      <h2 class="text-center">FIND US</h2>
+      <hr style="width:50px; height:3px; background-color: #001a4d;" />
+      <div id="contact-details" class="col-md-6">
+        <h5>Dallin Stephens</h5>
+        <h5>733 Lacey Way</h5>
+        <h5>North Salt Lake, UT 84054</h5>
+        <h5>dallinstephens1@gmail.com</h5>
+        <h5>801-203-0086</h5>
+        <br />
+        <h5>OPENING HOURS</H5>
+        <h5>Mon-Fri: 7am - 10pm</h5>
+        <h5>Saturday: 7am - 9pm</h5>
+        <br /><br />
+      </div>
+      <div class="col-md-6">
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" id="name" placeholder="Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" id="email" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="subject" placeholder="Subject">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" rows="5" id="comment" placeholder="Message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-block">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+</div>
+
+<!-- END CONTACT SECTION -->
+
+<!-- BEGIN BIG IMAGE 3 SECTION -->
+<div id="big-image-3"></div>
+<!-- END BIG IMAGE 3 SECTION -->
+
+<!-- BEGIN WEBSITE FOOTER -->
+
+<footer id="myFooter" class="jumbotron text-center" style="padding:100px 0; margin:0; background-color: #001a4d; color: #ffffff;">
+  <a href="#home">
+    <span class="glyphicon glyphicon-chevron-up" style="color: #ffffff"></span>
+  </a>
+  <br /><br />
+  <!-- visible only on small mobile devices (hidden on desktops & larger mobile devices) -->
+  <div class="visible-xs">Bootstrap Theme<br />Made By Dallin Stephens</div>
+  <!-- visible only on desktops & larger mobile devices (hidden on small mobile devices) -->
+  <div class="visible-lg visible-md visible-sm">Bootstrap Theme Made By Dallin Stephens</div>
+</footer>
+
+<!-- END WEBSITE FOOTER -->
+
+<!-- BEGIN SIGN UP MODAL: Sign up modal opens upon click of navbar sign up link. -->
+
+<div class="modal fade" id="sign-up" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn btn-lg close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+        <h3 class="modal-title">Sign Up</h3>
+        <span>Already have an account? <a id="open-login" href="#">Login</a></span>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <form action="">
+              <div class="form-group col-sm-6">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName">
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName">
+              </div>
+              <div class="form-group col-sm-12">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email">
+              </div>
+              <div class="form-group col-sm-12">
+                <label for="username">Username <small>(only letters, numbers, and underscores)</small></label>
+                <input type="text" class="form-control" id="username">
+              </div>
+              <div class="form-group col-sm-12">
+                <label for="pwd">Password <small>(minimum 6 characters)</small></label>
+                <input type="password" class="form-control" id="pwd">
+              </div>
+              <div class="col-sm-12">
+                <div class="checkbox">
+                  <label><input type="checkbox"> Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-default btn-color" onclick="alert('Sign Up Page')">Sign Up</button>
+                <div style="margin: 10px 0 0 0">
+                  <small>By joining, you agree to the <a href="#" onclick="alert('Terms Page')">Terms</a> and <a href="#"onclick="alert('Privacy Policy Page')">Privacy Policy.</a></small>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-color" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- END SIGN UP MODAL: Sign up modal opens upon click of navbar sign up link. -->
+
+<!-- BEGIN LOGIN MODAL: Login modal opens upon click of navbar login link. -->
+
+<div class="modal fade" id="login" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="padding:35px 50px;">
+        <button type="button" class="btn btn-lg close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+        <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+      </div>
+      <div class="modal-body" style="padding:40px 50px;">
+        <form role="form">
+          <div class="form-group">
+            <label for="usrname"><span class="glyphicon glyphicon-theme-color glyphicon-user"></span> Username</label>
+            <input type="text" class="form-control" placeholder="Enter username">
+          </div>
+          <div class="form-group">
+            <label for="psw"><span class="glyphicon glyphicon-theme-color glyphicon-eye-close"></span> Password</label>
+            <input type="password" class="form-control" id="psw" placeholder="Enter password">
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="" checked>Remember me</label>
+          </div>
+          <button type="submit" class="btn btn-color btn-default" onclick="alert('Login Page')"><span class="glyphicon glyphicon-off"></span> Login</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-color btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+        <p>Not a member? <a id="open-sign-up" href="#">Sign Up</a></p>
+        <p>Forgot <a id="open-forgot-password" href="#">Password?</a></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- END LOGIN MODAL: Login modal opens upon click of navbar login link. -->
+
+<!-- BEGIN FORGOT PASSWORD MODAL: Forgot password modal opens upon click of login modal footer forgot password link. -->
+
+<div id="forgot-password" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn btn-lg close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+        <h3 class="modal-title">Forgot your password?</h3>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <form action="">
+            <label for="email"><span class="glyphicon glyphicon-theme-color glyphicon-envelope"></span> Email</label>
+            <input type="email" class="form-control" placeholder="Enter email address">
+            <div style="margin: 10px 0 0 0">
+              <button type="submit" class="btn btn-default btn-color" onclick="alert('Reset Password Instructions Page')">Send me reset password instructions</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-color" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- END FORGOT PASSWORD MODAL: Forgot password modal opens upon click of login modal footer forgot password link. -->
+
+<!-- BEGIN OUR WORK SECTION IMAGE MODAL -->
+
+<div id="workImageModal" class="modal">
+  <span class="glyphicon glyphicon-resize-full hidden-xs" onclick="fullScreen();"></span>
+  <span class="glyphicon glyphicon-resize-small hidden hidden-xs" onclick="regularScreen();"></span>
+  <span class="close" onclick="document.getElementById('workImageModal').style.display = 'none';">×</span>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-6">
+
+        <div id="myCarousel" class="carousel slide" data-interval="false">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+            <li data-target="#myCarousel" data-slide-to="5"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active">
+              <img class="modal-content" id="img01">
+              <div class="carousel-caption">
+                <h3>Image Title 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <img class="modal-content" id="img02">
+              <div class="carousel-caption">
+                <h3>Image Title 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <img class="modal-content" id="img03">
+              <div class="carousel-caption">
+                <h3>Image Title 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <img class="modal-content" id="img04">
+              <div class="carousel-caption">
+                <h3>Image Title 4</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <img class="modal-content" id="img05">
+              <div class="carousel-caption">
+                <h3>Image Title 5</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <img class="modal-content" id="img06">
+              <div class="carousel-caption">
+                <h3>Image Title 6</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+      </div>
+      <div class="col-sm-1"></div>
+      <div class="col-sm-4">
+        <div class="new-caption-area"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- END OUR WORK SECTION IMAGE MODAL -->
 
 </body>
 </html>
