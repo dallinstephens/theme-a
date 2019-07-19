@@ -114,33 +114,47 @@
     /* starting image which fades */
     #fadeOut {
       position: fixed;
-      top:0px;
+      top: 0px;
       margin: 0 -4%;
       width: 110%;
     }
 
-    /* image tall enough with medium screens */
-    @media only screen and (max-width: 991px){
+    @media only screen and (max-width: 1200px){
       #fadeOut {
-        top: -10px;
-        margin: 0 -48.5%;
-        width: 200%;
+        top: 50px;
+        margin: 0 -14%;
+        width: 130%;
       }
     }
 
-    /* image tall enough with extra small screens */
-    @media only screen and (max-width: 600px){
+    @media only screen and (max-width: 1000px){
       #fadeOut {
         top: 40px;
-        margin: 0 -73%;
-        width: 250%;
+        margin: 0 -33.5%;
+        width: 170%;
+      }
+    }
+
+    @media only screen and (max-width: 800px){
+      #fadeOut {
+        top: 40px;
+        margin: 0 -58%;
+        width: 220%;
+      }
+    }
+
+    @media only screen and (max-width: 600px){
+      #fadeOut {
+        top: 30px;
+        margin: 0 -82.8%;
+        width: 270%;
       }
     }
 
     /* logo positioning & styling */
     #logo {
       position: absolute;
-      top: 200px;
+      top: 250px;
       z-index: 1;
       background-color: transparent;
       color: #ffffff;
@@ -1015,7 +1029,7 @@
 
 <!-- BEGIN NAVIGATION BAR -->
 
-<nav class="navbar navbar-fixed-top">
+<nav id="bar" class="navbar navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -1026,7 +1040,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#home">HOME</a></li>
+        <li class="active"><a href="#home" onclick="alert(document.getElementById('bar').offsetWidth); return false;">HOME</a></li>
 		    <li><a href="#services">SERVICES</a></li>
         <li><a href="#work">OUR WORK</a></li>
         <li><a href="#about">ABOUT US</a></li>
