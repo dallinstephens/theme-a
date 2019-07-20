@@ -485,17 +485,39 @@
     #big-image-1 {
       position: relative;
       height: 662px;
+      z-index: -5;
     }
 
     #big-image-1:before {
       content: "";
       background: blue url("images/team-collaboration-men.jpg") no-repeat;
       position: fixed;
-      z-index:-5;
+      background-position: 100% 45%;
       top: 0px;
       left: 0;
       height: 100%;
       width: 100%;
+    }
+
+    @media only screen and (max-width: 1199px){
+      #big-image-1:before {
+        background-size: 110%;
+        background-position: 70% 45%;
+      }
+    }
+
+    @media only screen and (max-width: 991px){
+      #big-image-1:before {
+        background-size: 150%;
+        background-position: 70% 45%;
+      }
+    }
+
+    @media only screen and (max-width: 767px){
+      #big-image-1:before {
+        background-size: 210%;
+        background-position: 56% 45%;
+      }
     }
 
   /* END BIG IMAGE 1 */
@@ -503,38 +525,84 @@
   /* BEGIN BIG IMAGE 2 */
 
     #big-image-2 {
-      background-image: url("images/team-collaboration-women.jpg");
-      min-height: 570px;
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
+      position: relative;
+      height: 662px;
+      z-index: -4;
+    }
+
+    #big-image-2:before {
+      content: "";
+      background: blue url("images/team-collaboration-women.jpg") no-repeat;
+      position: fixed;
       background-size: 100%;
+      background-position: 20% 40%;
+      top: 0px;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    @media only screen and (max-width: 1199px){
+      #big-image-2:before {
+        background-size: 120%;
+        background-position: 68% 0%;
+      }
+    }
+
+    @media only screen and (max-width: 991px){
+      #big-image-2:before {
+        background-size: 150%;
+        background-position: 55% 45%;
+      }
     }
 
     @media only screen and (max-width: 767px){
-      #big-image-2 {
-        background-position: 73%;
+      #big-image-2:before {
         background-size: 230%;
+        background-position: 72.8% 60%;
       }
     }
+
 
   /* END BIG IMAGE 2 */
 
   /* BEGIN BIG IMAGE 3 */
 
     #big-image-3 {
-      background-image: url("images/code.jpg");
-      min-height: 570px;
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 100%;
+      position: relative;
+      height: 662px;
+      z-index: -3;
+    }
+
+    #big-image-3:before {
+      content: "";
+      background: blue url("images/code.jpg") no-repeat;
+      position: fixed;
+      background-position: 100% 45%;
+      top: 0px;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    @media only screen and (max-width: 1199px){
+      #big-image-3:before {
+        background-size: 120%;
+        background-position: 68% 0%;
+      }
+    }
+
+    @media only screen and (max-width: 991px){
+      #big-image-3:before {
+        background-size: 150%;
+        background-position: 55% 45%;
+      }
     }
 
     @media only screen and (max-width: 767px){
-      #big-image-3 {
-        background-position: 73%;
+      #big-image-3:before {
         background-size: 230%;
+        background-position: 72.8% 60%;
       }
     }
 
@@ -1040,7 +1108,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#home" onclick="alert(document.getElementById('bar').offsetWidth); return false;">HOME</a></li>
+        <li class="active"><a href="#" onclick="alert(document.getElementById('bar').offsetWidth); return false;">HOME</a></li>
 		    <li><a href="#services">SERVICES</a></li>
         <li><a href="#work">OUR WORK</a></li>
         <li><a href="#about">ABOUT US</a></li>
@@ -1213,7 +1281,7 @@
 <!-- END OUR WORK SECTION -->
 
 <!-- BEGIN BIG IMAGE 1 SECTION -->
-<div id="big-image-1"></div>
+<div id="big-image-1" class="fadeIn-animation"></div>
 <!-- END BIG IMAGE 1 SECTION -->
 
 <!-- BEGIN ABOUT SECTION -->
@@ -1233,7 +1301,7 @@
 <!-- END ABOUT SECTION -->
 
 <!-- BEGIN BIG IMAGE 2 SECTION -->
-<div id="big-image-2"></div>
+<div id="big-image-2" class="fadeIn-animation"></div>
 <!-- END BIG IMAGE 2 SECTION -->
 
 <!-- BEGIN CONTACT SECTION -->
@@ -1288,7 +1356,7 @@
 <!-- END CONTACT SECTION -->
 
 <!-- BEGIN BIG IMAGE 3 SECTION -->
-<div id="big-image-3"></div>
+<div id="big-image-3" class="fadeIn-animation"></div>
 <!-- END BIG IMAGE 3 SECTION -->
 
 <!-- BEGIN WEBSITE FOOTER -->
