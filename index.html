@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Theme 1</title>
+  <title>Theme B</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bootstrap/css/bootstrap-3.4.1.min.css">
@@ -483,19 +483,19 @@
   /* BEGIN BIG IMAGE 1 */
 
     #big-image-1 {
-      background-image: url("images/team-collaboration-men.jpg");
-      min-height: 570px;
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 100%;
+      position: relative;
+      height: 662px;
     }
 
-    @media only screen and (max-width: 767px){
-      #big-image-1 {
-        background-position: 61%;
-        background-size: 207%;
-      }
+    #big-image-1:before {
+      content: "";
+      background: blue url("images/team-collaboration-men.jpg") no-repeat;
+      position: fixed;
+      z-index:-5;
+      top: 0px;
+      left: 0;
+      height: 100%;
+      width: 100%;
     }
 
   /* END BIG IMAGE 1 */
