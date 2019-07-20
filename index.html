@@ -177,7 +177,7 @@
     /* home jumbotron */
     #home.jumbotron {
       background-color: transparent;
-      color: #001a4d;
+      color: var(--theme-primary-color);;
       margin: 0;
     }
 
@@ -266,7 +266,7 @@
       #work .btn:hover {
         border: 1px solid #ffffff;
         background-color: #ffffff;
-        color: #001a4d;
+        color: var(--theme-primary-color);;
       }
 
       .text {
@@ -318,7 +318,7 @@
     }
 
     #contact .btn {
-      background-color: #001a4d;
+      background-color: var(--theme-primary-color);;
       color: #ffffff;
     }
 
@@ -490,7 +490,7 @@
 
     #big-image-1:before {
       content: "";
-      background: blue url("images/team-collaboration-men.jpg") no-repeat;
+      background: var(--theme-primary-color) url("images/team-collaboration-men.jpg") no-repeat;
       position: fixed;
       background-position: 100% 45%;
       top: 0px;
@@ -532,7 +532,7 @@
 
     #big-image-2:before {
       content: "";
-      background: blue url("images/team-collaboration-women.jpg") no-repeat;
+      background: var(--theme-primary-color) url("images/team-collaboration-women.jpg") no-repeat;
       position: fixed;
       background-size: 100%;
       background-position: 20% 40%;
@@ -576,7 +576,7 @@
 
     #big-image-3:before {
       content: "";
-      background: blue url("images/code.jpg") no-repeat;
+      background: var(--theme-primary-color) url("images/code.jpg") no-repeat;
       position: fixed;
       background-position: 100% 45%;
       top: 0px;
@@ -1108,7 +1108,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#home" onclick="alert(document.getElementById('bar').offsetWidth); return false;">HOME</a></li>
+        <li class="active"><a href="#home">HOME</a></li>
 		    <li><a href="#services">SERVICES</a></li>
         <li><a href="#work">OUR WORK</a></li>
         <li><a href="#about">ABOUT US</a></li>
@@ -1195,9 +1195,9 @@
 
 <!-- BEGIN OUR WORK SECTION -->
 
-<div id="work" class="jumbotron" style="background-color:#001a4d; color: #ffffff">
+<div id="work" class="jumbotron" style="background-color:var(--theme-primary-color); color: var(--theme-secondary-color)">
   <h2 class="text-center">OUR WORK</h2>
-  <hr style="width:50px; height:3px; background-color: #ffffff" />
+  <hr style="width:50px; height:3px; background-color: var(--theme-secondary-color)" />
   <h4 class="text-center">Lorem ipsum dolor sit amet</h4>
   <br /><br /><br />
   <div class="container">
@@ -1289,9 +1289,9 @@
 <div id="about" class="container-fluid parallax texture-square-variation">
   <div class="row">
     <div class="col-sm-3"></div>
-    <div class="col-sm-6 jumbotron fadeIn-animation" style="margin: 150px 20px; background-color: #ffffff; color: #001a4d">
+    <div class="col-sm-6 jumbotron fadeIn-animation" style="margin: 150px 20px; background-color: var(--theme-secondary-color); color: var(--theme-primary-color);">
       <h2 class="text-center">ABOUT US</h2>
-      <hr style="width:50px; height:3px; background-color: #001a4d;" />
+      <hr style="width:50px; height:3px; background-color: var(--theme-primary-color);;" />
       <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br /><br />Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
     <div class="col-sm-3"></div>
@@ -1316,9 +1316,9 @@
   </div>
   <div class="row">
     <div class="col-sm-3"></div>
-    <div class="col-sm-6 jumbotron fadeIn-animation" style="margin: 0px 20px 150px 20px; background-color: #ffffff; color: #001a4d">
+    <div class="col-sm-6 jumbotron fadeIn-animation" style="margin: 0px 20px 150px 20px; background-color: var(--theme-secondary-color); color: var(--theme-primary-color);">
       <h2 class="text-center">FIND US</h2>
-      <hr style="width:50px; height:3px; background-color: #001a4d;" />
+      <hr style="width:50px; height:3px; background-color: var(--theme-primary-color);;" />
       <div id="contact-details" class="col-md-6">
         <h5>Dallin Stephens</h5>
         <h5>733 Lacey Way</h5>
@@ -1361,9 +1361,9 @@
 
 <!-- BEGIN WEBSITE FOOTER -->
 
-<footer id="myFooter" class="jumbotron text-center" style="padding:100px 0; margin:0; background-color: #001a4d; color: #ffffff;">
+<footer id="myFooter" class="jumbotron text-center" style="padding:100px 0; margin:0; background-color: var(--theme-primary-color); color: var(--theme-secondary-color);">
   <a href="#home">
-    <span class="glyphicon glyphicon-chevron-up" style="font-size: 25px; color: #ffffff"></span>
+    <span class="glyphicon glyphicon-chevron-up" style="font-size: 25px; color: var(--theme-secondary-color)"></span>
   </a>
   <br /><br />
   <!-- visible only on small mobile devices (hidden on desktops & larger mobile devices) -->
