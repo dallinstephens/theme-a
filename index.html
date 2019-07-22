@@ -156,9 +156,12 @@
 
     @media only screen and (max-width: 800px){
       #fadeOut {
-        top: 40px;
-        margin: 0 -58%;
-        width: 220%;
+        top: 10px;
+        margin: 0 -83%;
+        width: 270%;
+      }
+      #logo {
+        top: 270px;
       }
     }
 
@@ -957,7 +960,7 @@
 
   // BEGIN WEBSITE HEADER IMAGE FADES AS USER SCROLLS DOWN PAGE
 
-    var fadeStart=100, // 100px scroll or less will equiv to 1 opacity
+    var fadeStart=0, // 0px scroll or less will equiv to 1 opacity
     fadeUntil=1600, // 1600px scroll or more will equiv to 0 opacity
     fadeOut = $('#fadeOut');
 
