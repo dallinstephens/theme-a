@@ -957,7 +957,7 @@
 
   // BEGIN WEBSITE HEADER IMAGE FADES AS USER SCROLLS DOWN PAGE
 
-    var fadeStart=1, // 1px scroll or less will equiv to 1 opacity
+    var fadeStart=0, // 0px scroll or less will equiv to 1 opacity
     fadeUntil=1600, // 1600px scroll or more will equiv to 0 opacity
     fadeOut = $('#fadeOut');
 
@@ -1098,19 +1098,6 @@
 </head>
 <body>
 
-<!-- BEGIN WEBSITE HEADER -->
-
-<!-- starting image -->
-<div id="fadeOut"></div>
-
-<div id="logo">
-  <div class="glyphicon glyphicon-flash"></div>
-  <h2>COMPANY</h2>
-  <h4 style="text-transform: uppercase;">Lorem ipsum dolor sit amet</h4>
-</div>
-
-<!-- END WEBSITE HEADER -->
-
 <!-- BEGIN NAVIGATION BAR -->
 
 <nav id="bar" class="navbar navbar-fixed-top">
@@ -1140,6 +1127,20 @@
 <!-- BEGIN SERVICES SECTION -->
 
 <div id="home" class="parallax texture-square jumbotron">
+
+  <!-- BEGIN WEBSITE HEADER -->
+
+  <!-- starting image -->
+  <div id="fadeOut"></div>
+
+  <div id="logo">
+    <div class="glyphicon glyphicon-flash"></div>
+    <h2>COMPANY</h2>
+    <h4 style="text-transform: uppercase;">Lorem ipsum dolor sit amet</h4>
+  </div>
+
+  <!-- END WEBSITE HEADER -->
+
   <div id="services" style="margin: 2000px 0 100px 0;">
     <br /><br /><br />
     <h2 class="text-center">SERVICES</h2>
