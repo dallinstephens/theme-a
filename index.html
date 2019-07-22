@@ -114,7 +114,7 @@
     /* logo positioning & styling */
     #logo {
       position: absolute;
-      top: 250px;
+      top: 300px;
       z-index: 1;
       background-color: transparent;
       color: #ffffff;
@@ -134,54 +134,42 @@
     #fadeOut {
       position: relative;
       height: 662px;
+      top: 0;
     }
 
     #fadeOut:before {
       content: "";
       background: var(--theme-primary-color) url("images/city.jpg") no-repeat;
       position: fixed;
-      background-position: 100% 45%;
+      background-size: 170%;
+      background-position: 48.2% 10%;
       top: 0px;
       left: 0;
       height: 100%;
       width: 100%;
     }
 
-    @media only screen and (max-width: 1200px){
-      #fadeOut {
-        top: 50px;
-        margin: 0 -14%;
-        width: 130%;
+    @media only screen and (max-width: 1199px){
+      #fadeOut:before {
+        background-size: 190%;
+        background-position: 48.4% 25%;
       }
     }
 
-    @media only screen and (max-width: 1000px){
-      #fadeOut {
-        top: 40px;
-        margin: 0 -33.5%;
-        width: 170%;
+    @media only screen and (max-width: 991px){
+      #fadeOut:before {
+        background-size: 240%;
+        background-position: 48.7% 18%;
       }
     }
 
-    @media only screen and (max-width: 800px){
-      #fadeOut {
-        top: 10px;
-        margin: 0 -83%;
-        width: 270%;
+    @media only screen and (max-width: 767px){
+      #fadeOut:before {
+        background-size: 370%;
+        background-position: 49% 18%;
       }
       #logo {
-        top: 270px;
-      }
-    }
-
-    @media only screen and (max-width: 600px){
-      #fadeOut {
-        top: 30px;
-        margin: 0 -127%;
-        width: 360%;
-      }
-      #logo {
-        top: 170px;
+        top: 200px;
       }
     }
 
@@ -969,7 +957,7 @@
 
   // BEGIN WEBSITE HEADER IMAGE FADES AS USER SCROLLS DOWN PAGE
 
-    var fadeStart=0, // 0px scroll or less will equiv to 1 opacity
+    var fadeStart=1, // 1px scroll or less will equiv to 1 opacity
     fadeUntil=1600, // 1600px scroll or more will equiv to 0 opacity
     fadeOut = $('#fadeOut');
 
@@ -1136,7 +1124,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#home">HOME</a></li>
+        <li class="active"><a href="#home" onclick="alert(document.getElementById('bar').offsetWidth);">HOME</a></li>
 		    <li><a href="#services">SERVICES</a></li>
         <li><a href="#work">OUR WORK</a></li>
         <li><a href="#about">ABOUT US</a></li>
