@@ -111,6 +111,25 @@
 
   /* BEGIN WEBSITE HEADER */
 
+    /* logo positioning & styling */
+    #logo {
+      position: absolute;
+      top: 250px;
+      z-index: 1;
+      background-color: transparent;
+      color: #ffffff;
+      text-align: center;
+      width: 100%;
+    }
+
+    /* glyphicon */
+    #logo .glyphicon {
+      font-size: 80px;
+      border: 3px solid #ffffff;
+      padding: 7px;
+      border-radius: 49px;
+    }
+
     /* starting image which fades */
     #fadeOut {
       position: fixed;
@@ -146,28 +165,12 @@
     @media only screen and (max-width: 600px){
       #fadeOut {
         top: 30px;
-        margin: 0 -82.8%;
-        width: 270%;
+        margin: 0 -127%;
+        width: 360%;
       }
-    }
-
-    /* logo positioning & styling */
-    #logo {
-      position: absolute;
-      top: 250px;
-      z-index: 1;
-      background-color: transparent;
-      color: #ffffff;
-      text-align: center;
-      width: 100%;
-    }
-
-    /* glyphicon */
-    #logo .glyphicon {
-      font-size: 80px;
-      border: 3px solid #ffffff;
-      padding: 7px;
-      border-radius: 49px;
+      #logo {
+        top: 170px;
+      }
     }
 
   /* END WEBSITE HEADER */
