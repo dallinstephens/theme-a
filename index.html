@@ -132,10 +132,19 @@
 
     /* starting image which fades */
     #fadeOut {
+      position: relative;
+      height: 662px;
+    }
+
+    #fadeOut:before {
+      content: "";
+      background: var(--theme-primary-color) url("images/city.jpg") no-repeat;
       position: fixed;
+      background-position: 100% 45%;
       top: 0px;
-      margin: 0 -4%;
-      width: 110%;
+      left: 0;
+      height: 100%;
+      width: 100%;
     }
 
     @media only screen and (max-width: 1200px){
@@ -1103,13 +1112,14 @@
 
 <!-- BEGIN WEBSITE HEADER -->
 
+<!-- starting image -->
+<div id="fadeOut"></div>
+
 <div id="logo">
   <div class="glyphicon glyphicon-flash"></div>
   <h2>COMPANY</h2>
   <h4 style="text-transform: uppercase;">Lorem ipsum dolor sit amet</h4>
 </div>
-
-<img id="fadeOut" src="images/city.jpg" alt="City" />
 
 <!-- END WEBSITE HEADER -->
 
