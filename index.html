@@ -165,12 +165,23 @@
 
     @media only screen and (max-width: 767px){
       #fadeOut:before {
+        background-size: 290%;
+        background-position: 48.9% 40%;
+        top: 50px;
+      }
+      #logo {
+        top: 250px;
+      }
+    }
+
+    @media only screen and (max-width: 400px){
+      #fadeOut:before {
         background-size: 370%;
         background-position: 49% 0%;
         top: 50px;
       }
       #logo {
-        top: 360px;
+        top: 250px;
       }
     }
 
@@ -178,20 +189,21 @@
 
   /* BEGIN SERVICES SECTION */
 
-    /* home jumbotron */
-    #home.jumbotron {
+    /* services jumbotron */
+    #services.jumbotron {
       background-color: transparent;
       color: var(--theme-primary-color);;
       margin: 0;
+      padding: 0 0 100px 0;
     }
 
     /* bottom padding under each service */
-    #home.jumbotron .col-sm-4 {
+    #services.jumbotron .col-sm-4 {
       padding-bottom: 20px;
     }
 
     /* glyphicons */
-    #home span.glyphicon {
+    #services span.glyphicon {
       font-size: 80px;
     }
 
@@ -959,7 +971,7 @@
   // BEGIN WEBSITE HEADER IMAGE FADES AS USER SCROLLS DOWN PAGE
 
     var fadeStart=0, // 0px scroll or less will equiv to 1 opacity
-    fadeUntil=2400, // 1600px scroll or more will equiv to 0 opacity
+    fadeUntil=1600, // 1600px scroll or more will equiv to 0 opacity
     fadeOut = $('#fadeOut');
 
     $(window).bind('scroll', function(){
@@ -1125,11 +1137,9 @@
 
 <!-- END NAVIGATION BAR -->
 
-<!-- BEGIN SERVICES SECTION -->
+<!-- BEGIN WEBSITE HEADER -->
 
-<div id="home" class="parallax texture-square jumbotron">
-
-  <!-- BEGIN WEBSITE HEADER -->
+<div id="home" style="background: var(--theme-primary-color); height: 2000px;">
 
   <!-- starting image -->
   <div id="fadeOut"></div>
@@ -1140,57 +1150,60 @@
     <h4 style="text-transform: uppercase;">Lorem ipsum dolor sit amet</h4>
   </div>
 
-  <!-- END WEBSITE HEADER -->
+</div>
 
-  <div id="services" style="margin: 2000px 0 100px 0;">
-    <br /><br /><br />
-    <h2 class="text-center">SERVICES</h2>
-    <br />
-    <div class="container">
-      <div class="row text-center" style="margin-top:20px;">
-        <div class="col-sm-4">
-          <span class="glyphicon glyphicon-hourglass"></span>
-          <div class="fadeIn-animation">
-            <h3>Time Efficient</h3>
-            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <span class="glyphicon glyphicon-equalizer"></span>
-          <div class="fadeIn-animation">
-            <h3>Quality Assurance</h3>
-            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <span class="glyphicon glyphicon-piggy-bank"></span>
-          <div class="fadeIn-animation">
-            <h3>Money Efficient</h3>
-            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
-          </div>
+<!-- END WEBSITE HEADER -->
+
+<!-- BEGIN SERVICES SECTION -->
+
+<div id="services" class="parallax texture-square jumbotron">
+  <br /><br /><br />
+  <h2 class="text-center">SERVICES</h2>
+  <br />
+  <div class="container">
+    <div class="row text-center" style="margin-top:20px;">
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-hourglass"></span>
+        <div class="fadeIn-animation">
+          <h3>Time Efficient</h3>
+          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
         </div>
       </div>
-      <div class="row text-center" style="margin-top:20px;">
-        <div class="col-sm-4">
-          <span class="glyphicon glyphicon-cloud"></span>
-          <div class="fadeIn-animation">
-            <h3>Imagination</h3>
-            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
-          </div>
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-equalizer"></span>
+        <div class="fadeIn-animation">
+          <h3>Quality Assurance</h3>
+          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
         </div>
-        <div class="col-sm-4">
-          <span class="glyphicon glyphicon-eye-open"></span>
-          <div class="fadeIn-animation">
-            <h3>Vision</h3>
-            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
-          </div>
+      </div>
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-piggy-bank"></span>
+        <div class="fadeIn-animation">
+          <h3>Money Efficient</h3>
+          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
         </div>
-        <div class="col-sm-4">
-          <span class="glyphicon glyphicon-pencil"></span>
-          <div class="fadeIn-animation">
-            <h3>Solutions</h3>
-            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
-          </div>
+      </div>
+    </div>
+    <div class="row text-center" style="margin-top:20px;">
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-cloud"></span>
+        <div class="fadeIn-animation">
+          <h3>Imagination</h3>
+          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-eye-open"></span>
+        <div class="fadeIn-animation">
+          <h3>Vision</h3>
+          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <div class="fadeIn-animation">
+          <h3>Solutions</h3>
+          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
         </div>
       </div>
     </div>
