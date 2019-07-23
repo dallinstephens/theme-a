@@ -165,9 +165,9 @@
 
     @media only screen and (max-width: 767px){
       #fadeOut:before {
-        background-size: 290%;
-        background-position: 48.9% 40%;
-        top: 50px;
+        background-size: 370%;
+        background-position: 49% 16%;
+        top: 0px;
       }
       #logo {
         top: 250px;
@@ -189,21 +189,20 @@
 
   /* BEGIN SERVICES SECTION */
 
-    /* services jumbotron */
-    #services.jumbotron {
+    /* home jumbotron */
+    #home.jumbotron {
       background-color: transparent;
       color: var(--theme-primary-color);;
       margin: 0;
-      padding: 1400px 0 100px 0;
     }
 
     /* bottom padding under each service */
-    #services.jumbotron .col-sm-4 {
+    #home.jumbotron .col-sm-4 {
       padding-bottom: 20px;
     }
 
     /* glyphicons */
-    #services span.glyphicon {
+    #home span.glyphicon {
       font-size: 80px;
     }
 
@@ -214,15 +213,15 @@
       line-height: 1.5;
     }
 
-  /* END SERVICES SECTION */
+    /* texture square background */
+    .texture-square {
+      background-image: url("images/texture-square.jpg");
+      background-position: center;
+      background-repeat: repeat;
+      background-size: 200px;
+    }
 
-  /* texture square background for header & services sections */
-  .texture-square {
-    background-image: url("images/texture-square.jpg");
-    background-position: center;
-    background-repeat: repeat;
-    background-size: 200px;
-  }
+  /* END SERVICES SECTION */
 
   /* BEGIN OUR WORK SECTION */
 
@@ -971,7 +970,7 @@
   // BEGIN WEBSITE HEADER IMAGE FADES AS USER SCROLLS DOWN PAGE
 
     var fadeStart=0, // 0px scroll or less will equiv to 1 opacity
-    fadeUntil=1600, // 1600px scroll or more will equiv to 0 opacity
+    fadeUntil=2400, // 1600px scroll or more will equiv to 0 opacity
     fadeOut = $('#fadeOut');
 
     $(window).bind('scroll', function(){
@@ -1137,9 +1136,9 @@
 
 <!-- END NAVIGATION BAR -->
 
+<!-- BEGIN SERVICES SECTION -->
 
-
-<div id="home" class="parallax texture-square" style="height: 2800px;">
+<div id="home" class="parallax texture-square jumbotron">
 
   <!-- BEGIN WEBSITE HEADER -->
 
@@ -1154,9 +1153,7 @@
 
   <!-- END WEBSITE HEADER -->
 
-  <!-- BEGIN SERVICES SECTION -->
-
-  <div id="services" class="parallax texture-square jumbotron">
+  <div id="services" style="margin: 2000px 0 100px 0;">
     <br /><br /><br />
     <h2 class="text-center">SERVICES</h2>
     <br />
@@ -1209,10 +1206,9 @@
       </div>
     </div>
   </div>
-
-  <!-- END SERVICES SECTION -->
-
 </div>
+
+<!-- END SERVICES SECTION -->
 
 <!-- BEGIN OUR WORK SECTION -->
 
