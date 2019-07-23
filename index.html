@@ -194,7 +194,7 @@
       background-color: transparent;
       color: var(--theme-primary-color);;
       margin: 0;
-      padding: 0 0 100px 0;
+      padding: 1400px 0 100px 0;
     }
 
     /* bottom padding under each service */
@@ -214,15 +214,15 @@
       line-height: 1.5;
     }
 
-    /* texture square background */
-    .texture-square {
-      background-image: url("images/texture-square.jpg");
-      background-position: center;
-      background-repeat: repeat;
-      background-size: 200px;
-    }
-
   /* END SERVICES SECTION */
+
+  /* texture square background for header & services sections */
+  .texture-square {
+    background-image: url("images/texture-square.jpg");
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 200px;
+  }
 
   /* BEGIN OUR WORK SECTION */
 
@@ -1137,9 +1137,11 @@
 
 <!-- END NAVIGATION BAR -->
 
-<!-- BEGIN WEBSITE HEADER -->
 
-<div id="home" style="background: var(--theme-primary-color); height: 2000px;">
+
+<div id="home" class="parallax texture-square" style="height: 2800px;">
+
+  <!-- BEGIN WEBSITE HEADER -->
 
   <!-- starting image -->
   <div id="fadeOut"></div>
@@ -1150,67 +1152,67 @@
     <h4 style="text-transform: uppercase;">Lorem ipsum dolor sit amet</h4>
   </div>
 
-</div>
+  <!-- END WEBSITE HEADER -->
 
-<!-- END WEBSITE HEADER -->
+  <!-- BEGIN SERVICES SECTION -->
 
-<!-- BEGIN SERVICES SECTION -->
-
-<div id="services" class="parallax texture-square jumbotron">
-  <br /><br /><br />
-  <h2 class="text-center">SERVICES</h2>
-  <br />
-  <div class="container">
-    <div class="row text-center" style="margin-top:20px;">
-      <div class="col-sm-4">
-        <span class="glyphicon glyphicon-hourglass"></span>
-        <div class="fadeIn-animation">
-          <h3>Time Efficient</h3>
-          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+  <div id="services" class="parallax texture-square jumbotron">
+    <br /><br /><br />
+    <h2 class="text-center">SERVICES</h2>
+    <br />
+    <div class="container">
+      <div class="row text-center" style="margin-top:20px;">
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-hourglass"></span>
+          <div class="fadeIn-animation">
+            <h3>Time Efficient</h3>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-equalizer"></span>
+          <div class="fadeIn-animation">
+            <h3>Quality Assurance</h3>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-piggy-bank"></span>
+          <div class="fadeIn-animation">
+            <h3>Money Efficient</h3>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+          </div>
         </div>
       </div>
-      <div class="col-sm-4">
-        <span class="glyphicon glyphicon-equalizer"></span>
-        <div class="fadeIn-animation">
-          <h3>Quality Assurance</h3>
-          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+      <div class="row text-center" style="margin-top:20px;">
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-cloud"></span>
+          <div class="fadeIn-animation">
+            <h3>Imagination</h3>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+          </div>
         </div>
-      </div>
-      <div class="col-sm-4">
-        <span class="glyphicon glyphicon-piggy-bank"></span>
-        <div class="fadeIn-animation">
-          <h3>Money Efficient</h3>
-          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-eye-open"></span>
+          <div class="fadeIn-animation">
+            <h3>Vision</h3>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="row text-center" style="margin-top:20px;">
-      <div class="col-sm-4">
-        <span class="glyphicon glyphicon-cloud"></span>
-        <div class="fadeIn-animation">
-          <h3>Imagination</h3>
-          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <span class="glyphicon glyphicon-eye-open"></span>
-        <div class="fadeIn-animation">
-          <h3>Vision</h3>
-          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <span class="glyphicon glyphicon-pencil"></span>
-        <div class="fadeIn-animation">
-          <h3>Solutions</h3>
-          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-pencil"></span>
+          <div class="fadeIn-animation">
+            <h3>Solutions</h3>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- END SERVICES SECTION -->
+  <!-- END SERVICES SECTION -->
+
+</div>
 
 <!-- BEGIN OUR WORK SECTION -->
 
