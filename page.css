@@ -1,0 +1,884 @@
+/* theme colors css variables */
+:root {
+  --theme-primary-color: #001a4d; /* theme color */
+  --theme-secondary-color: #ffffff; /* white if darker theme color, black if lighter theme color */
+}
+
+/* BEGIN ANIMATION: FADE IN ELEMENTS */
+
+  /* fade in animation element hidden initially */
+  .fadeIn-animation {visibility:hidden;}
+
+  /* fade in animation setup */
+  .fadeIn {
+    /* The name of the animation */
+    animation-name: fadeIn;
+    -webkit-animation-name: fadeIn;
+    /* The duration of the animation */
+    animation-duration: 3s;
+    -webkit-animation-duration: 3s;
+    /* Make the element visible */
+    visibility: visible;
+  }
+
+  /* Go from 0% to 100% opacity */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+/* END ANIMATION: FADE IN ELEMENTS */
+
+/* BEGIN NAVIGATION BAR */
+
+  /* navbar background-color */
+  .navbar {
+    background-color: #001a4d;
+  }
+
+  /* center navbar links */
+  .navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+  }
+
+  .navbar .navbar-collapse {
+    text-align: center;
+  }
+
+  /* add space between navbar links */
+  .navbar-nav > li {
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+  /* Link */
+  .navbar-nav > li > a {
+    color: #ffffff;
+  }
+  .navbar-nav > li > a:hover,
+  .navbar-nav > li > a:focus {
+    color: #001a4d;
+    background-color: #ffffff;
+  }
+
+  /* mobile */
+  .navbar-toggle .icon-bar {
+    background-color: #ffffff;
+  }
+
+  .navbar-toggle:hover .icon-bar {
+    background-color: #001a4d;
+  }
+
+  .navbar-toggle:hover {
+    background-color: #ffffff;
+  }
+
+  /* highlight link is full screen width when hovering */
+  @media only screen and (max-width: 767px){
+    .navbar .navbar-nav {
+      display: block;
+    }
+  }
+
+/* END NAVIGATION BAR */
+
+/* BEGIN WEBSITE HEADER */
+
+  /* logo positioning & styling */
+  #logo {
+    position: absolute;
+    top: 300px;
+    z-index: 1;
+    background-color: transparent;
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* glyphicon */
+  #logo .glyphicon {
+    font-size: 80px;
+    border: 3px solid #ffffff;
+    padding: 7px;
+    border-radius: 49px;
+  }
+
+  /* starting image which fades */
+  #fadeOut {
+    position: relative;
+    height: 662px;
+    top: 0;
+  }
+
+  #fadeOut:before {
+    content: "";
+    background: var(--theme-primary-color) url("images/city.jpg") no-repeat;
+    position: fixed;
+    background-size: 170%;
+    background-position: 48.2% 10%;
+    top: 0px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 1199px){
+    #fadeOut:before {
+      background-size: 190%;
+      background-position: 48.4% 25%;
+    }
+  }
+
+  @media only screen and (max-width: 991px){
+    #fadeOut:before {
+      background-size: 240%;
+      background-position: 48.7% 18%;
+    }
+  }
+
+  @media only screen and (max-width: 767px){
+    #fadeOut:before {
+      background-size: 370%;
+      background-position: 49% 16%;
+      top: 0px;
+    }
+    #logo {
+      top: 250px;
+    }
+  }
+
+  @media only screen and (max-width: 400px){
+    #fadeOut:before {
+      background-size: 370%;
+      background-position: 49% 0%;
+      top: 50px;
+    }
+    #logo {
+      top: 250px;
+    }
+  }
+
+/* END WEBSITE HEADER */
+
+/* BEGIN SERVICES SECTION */
+
+  /* home jumbotron */
+  #home.jumbotron {
+    background-color: transparent;
+    color: var(--theme-primary-color);;
+    margin: 0;
+  }
+
+  /* bottom padding under each service */
+  #home.jumbotron .col-sm-4 {
+    padding-bottom: 20px;
+  }
+
+  /* glyphicons */
+  #home span.glyphicon {
+    font-size: 80px;
+  }
+
+  /* h5 text */
+  #services h5 {
+    max-width: 300px;
+    margin: auto;
+    line-height: 1.5;
+  }
+
+  /* texture square background */
+  .texture-square {
+    background-image: url("images/texture-square.jpg");
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 200px;
+  }
+
+/* END SERVICES SECTION */
+
+/* BEGIN OUR WORK SECTION */
+
+  /* jumbotron */
+  #work.jumbotron {
+    padding: 50px 0 200px 0;
+    margin-bottom:0;
+    background-color:var(--theme-primary-color);
+    color: var(--theme-secondary-color);
+  }
+
+  /* BEGIN IMAGE FADE IN BOX */
+
+    .image {
+      opacity: 1;
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: .5s ease;
+      backface-visibility: hidden;
+      width:100%;
+    }
+
+    .middle {
+      transition: .5s ease;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      width: 100%;
+    }
+
+    #work > div > div > div:nth-child(1):hover .image,
+    #work > div > div > div:nth-child(2):hover .image,
+    #work > div > div > div:nth-child(3):hover .image,
+    #work > div > div > div:nth-child(4):hover .image,
+    #work > div > div > div:nth-child(5):hover .image,
+    #work > div > div > div:nth-child(6):hover .image {
+      opacity: 0.5;
+    }
+
+    #work > div > div > div:nth-child(1):hover .middle,
+    #work > div > div > div:nth-child(2):hover .middle,
+    #work > div > div > div:nth-child(3):hover .middle,
+    #work > div > div > div:nth-child(4):hover .middle,
+    #work > div > div > div:nth-child(5):hover .middle,
+    #work > div > div > div:nth-child(6):hover .middle {
+      opacity: 1;
+    }
+
+    #work .btn {
+      margin: 17px 0;
+      background-color: transparent;
+      border: 1px solid #ffffff;
+      color: #ffffff;
+    }
+
+    #work .btn:hover {
+      border: 1px solid #ffffff;
+      background-color: #ffffff;
+      color: var(--theme-primary-color);;
+    }
+
+    .text {
+      white-space: wrap;
+      line-height: 1.2;
+      color: white;
+      font-size: 20px;
+      position: absolute;
+      overflow: hidden;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+    }
+
+  /* END IMAGE FADE IN BOX */
+
+  /* hand cursor */
+  #work > div > div > div:nth-child(1),
+  #work > div > div > div:nth-child(2),
+  #work > div > div > div:nth-child(3),
+  #work > div > div > div:nth-child(4),
+  #work > div > div > div:nth-child(5),
+  #work > div > div > div:nth-child(6) {
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+/* END OUR WORK SECTION */
+
+/* BEGIN ABOUT SECTION */
+
+  /* for lazy load */
+  .texture-square-variation.lazy {
+     background-image: none;
+     background-color: var(--theme-primary-color);
+  }
+
+  /* texture square background */
+  .texture-square-variation {
+    background-image: url("images/texture-square-variation.jpg");
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 150px;
+  }
+
+/* END ABOUT SECTION */
+
+/* BEGIN CONTACT SECTION */
+
+  /* Fixes color of phone number on mobile devices */
+  a[href^=tel] {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #contact .btn {
+    background-color: var(--theme-primary-color);
+    color: #ffffff;
+  }
+
+  #contact .btn:hover {
+    background-color: #4d88ff;
+    color: #ffffff;
+  }
+
+  @media only screen and (max-width: 991px){
+    #contact-details {
+      text-align: center;
+    }
+  }
+
+/* END CONTACT SECTION */
+
+/* BEGIN OUR WORK SECTION IMAGE MODAL */
+
+  /* The Modal (background) */
+  #workImageModal.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10000; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #ffffff; /* White */
+  }
+
+  /* Modal Content (image) */
+  .modal-content {
+    display: block;
+    width: 100%;
+  }
+
+  /* Add Animation */
+  .modal-content {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+
+  @-webkit-keyframes zoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+  }
+
+  @keyframes zoom {
+    from {transform: scale(0.1)}
+    to {transform: scale(1)}
+  }
+
+  /* full page glyphicon button */
+  #workImageModal > .glyphicon {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    margin: 0;
+    padding: 23px;
+    color: #777777;
+    font-size: 35px;
+    transition: 0.3s;
+    /* same color as bootstrap close button */
+    opacity: 0.4;
+  }
+
+  #workImageModal > .glyphicon:hover,
+  #workImageModal > .glyphicon:focus {
+    background-color: #777777;
+    color: #ffffff;
+    border-radius: 15px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* The Close Button */
+  #workImageModal > .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    margin: 0;
+    padding: 0 20px;
+    color: #777777;
+    font-size: 80px;
+    transition: 0.3s;
+  }
+
+  #workImageModal > .close:hover,
+  #workImageModal > .close:focus {
+    background-color: #777777;
+    color: #ffffff;
+    border-radius: 15px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* position carousel previous & next arrows outside of image */
+  .carousel-control.left {
+    margin-left: -90px;
+    background: none;
+    color: #777777;
+  }
+
+  .carousel-control.right {
+    margin-right: -90px;
+    background: none;
+    color: #777777;
+  }
+
+  /* position carousel circle indicators below image */
+  .carousel-indicators {
+    bottom:-50px;
+  }
+
+  /* change color of carousel circle indicators */
+    .carousel-indicators li {
+      border-color: #777777;
+    }
+
+    .carousel-indicators .active {
+      background-color: #777777;
+    }
+
+  /* 100% Image Width on Smaller Screens */
+  @media only screen and (max-width: 767px){
+    .modal-content {
+      width: 100%;
+    }
+    .carousel-control.left {
+      margin-left: 0px;
+      color: #ffffff;
+    }
+    .carousel-control.right {
+      margin-right: 0px;
+      color: #ffffff;
+    }
+    .carousel-indicators {
+      bottom:0px;
+    }
+    .carousel-indicators li {
+      border-color: #ffffff;
+    }
+
+    .carousel-indicators .active {
+      background-color: #ffffff;
+    }
+  }
+
+  /* for caption in full screen */
+  .fullScreen {
+    text-align: center;
+    width: 100%;
+    padding-top: 30px;
+  }
+
+/* END OUR WORK SECTION IMAGE MODAL */
+
+/* BEGIN BIG IMAGE 1 */
+
+  #big-image-1 {
+    position: relative;
+    height: 662px;
+    z-index: -5;
+  }
+
+  /* for lazy load */
+  #big-image-1.lazy:before {
+     background-image: none;
+     background-color: var(--theme-primary-color); 
+  }
+
+  #big-image-1:before {
+    content: "";
+    background: var(--theme-primary-color) url("images/team-collaboration-men.jpg") no-repeat;
+    position: fixed;
+    background-position: 100% 45%;
+    top: 0px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 1199px){
+    #big-image-1:before {
+      background-size: 110%;
+      background-position: 70% 45%;
+    }
+  }
+
+  @media only screen and (max-width: 991px){
+    #big-image-1:before {
+      background-size: 150%;
+      background-position: 70% 45%;
+    }
+  }
+
+  @media only screen and (max-width: 767px){
+    #big-image-1:before {
+      background-size: 210%;
+      background-position: 56% 45%;
+    }
+  }
+
+/* END BIG IMAGE 1 */
+
+/* BEGIN BIG IMAGE 2 */
+
+  #big-image-2 {
+    position: relative;
+    height: 662px;
+    z-index: -4;
+  }
+
+  /* for lazy load */
+  #big-image-2.lazy:before {
+     background-image: none;
+     background-color: #F1F1FA;
+  }
+
+  #big-image-2:before {
+    content: "";
+    background: var(--theme-primary-color) url("images/team-collaboration-women.jpg") no-repeat;
+    position: fixed;
+    background-size: 100%;
+    background-position: 20% 40%;
+    top: 0px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 1199px){
+    #big-image-2:before {
+      background-size: 120%;
+      background-position: 68% 0%;
+    }
+  }
+
+  @media only screen and (max-width: 991px){
+    #big-image-2:before {
+      background-size: 150%;
+      background-position: 55% 45%;
+    }
+  }
+
+  @media only screen and (max-width: 767px){
+    #big-image-2:before {
+      background-size: 230%;
+      background-position: 72.8% 60%;
+    }
+  }
+
+/* END BIG IMAGE 2 */
+
+/* BEGIN BIG IMAGE 3 */
+
+  #big-image-3 {
+    position: relative;
+    height: 662px;
+    z-index: -3;
+  }
+
+  /* for lazy load */
+  #big-image-3.lazy:before {
+     background-image: none;
+     background-color: #F1F1FA;
+  }
+
+  #big-image-3:before {
+    content: "";
+    background: var(--theme-primary-color) url("images/code.jpg") no-repeat;
+    position: fixed;
+    background-position: 100% 45%;
+    top: 0px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 1199px){
+    #big-image-3:before {
+      background-size: 120%;
+      background-position: 68% 0%;
+    }
+  }
+
+  @media only screen and (max-width: 991px){
+    #big-image-3:before {
+      background-size: 150%;
+      background-position: 55% 45%;
+    }
+  }
+
+  @media only screen and (max-width: 767px){
+    #big-image-3:before {
+      background-size: 230%;
+      background-position: 72.8% 60%;
+    }
+  }
+
+/* END BIG IMAGE 2 */
+
+/* BEGIN SIGN UP MODAL: Sign up modal opens upon click of navbar sign up link. */
+
+  /* BEGIN SIGN UP MODAL HEADER */
+
+    /* sign up modal header background-color & text color and title h4 background-color & text color */
+    #sign-up .modal-header, #sign-up h4 {
+      background-color: var(--theme-primary-color);
+      color: var(--theme-secondary-color) !important;
+    }
+
+    /* sign up modal header link color & underlined link */
+    #sign-up .modal-header a {
+      color: var(--theme-secondary-color);
+      text-decoration: underline;
+    }
+
+    /* sign up modal header hover link background-color & hover text color */
+    #sign-up .modal-header a:hover {
+      background-color: var(--theme-secondary-color);
+      color: var(--theme-primary-color);
+    }
+
+    /* sign up modal header close button styling */
+    #sign-up .close {
+      opacity: 1;
+      padding: 5px 7px;
+      color: var(--theme-secondary-color) !important;
+      border: 1px solid var(--theme-secondary-color);
+    }
+
+    /* sign up modal header close button hover background-color & hover text color */
+    #sign-up .close:hover {
+      background-color: var(--theme-secondary-color);
+      color: var(--theme-primary-color) !important;
+    }
+
+  /* END SIGN UP MODAL HEADER */
+
+  /* BEGIN SIGN UP MODAL BODY */
+
+    /* sign up modal body background-color */
+    #sign-up .modal-body {
+      background-color: #f2f2f2;
+    }
+
+    /* sign up modal body button styling */
+    #sign-up .modal-body .btn-color {
+      background-color: var(--theme-primary-color);
+      color: var(--theme-secondary-color);
+      border: 1px solid var(--theme-secondary-color);
+    }
+
+    /* sign up modal body button hover styling */
+    #sign-up .modal-body .btn-color:hover {
+      background-color: var(--theme-secondary-color);
+      color: var(--theme-primary-color);
+      border: 1px solid var(--theme-primary-color);
+    }
+
+  /* END SIGN UP MODAL BODY */
+
+  /* BEGIN SIGN UP MODAL FOOTER */
+
+    /* sign up modal footer background-color & text color */
+    #sign-up .modal-footer {
+      background-color: var(--theme-primary-color);
+      color: var(--theme-secondary-color);
+    }
+
+    /* sign up modal footer button styling */
+    #sign-up .modal-footer .btn-color {
+      background-color: var(--theme-primary-color);
+      color: var(--theme-secondary-color);
+      border: 1px solid var(--theme-secondary-color);
+    }
+
+    /* sign up modal footer button hover styling */
+    #sign-up .modal-footer .btn-color:hover {
+      background-color: var(--theme-secondary-color);
+      color: var(--theme-primary-color);
+    }
+
+    /* END SIGN UP MODAL FOOTER */
+
+/* END SIGN UP MODAL: Sign up modal opens upon click of navbar sign up link. */
+
+/* BEGIN LOGIN MODAL: Login modal opens upon click of navbar login link. */
+
+  /* BEGIN LOGIN MODAL HEADER */
+
+    /* login modal header background-color & text color and title h4 background-color & text color */
+    #login .modal-header, #login h4 {
+      background-color: var(--theme-primary-color);
+      color: var(--theme-secondary-color) !important;
+      text-align: center;
+      font-size: 30px;
+    }
+
+    /* login modal header close button styling */
+    #login .close {
+      opacity: 1;
+      padding: 5px 7px;
+      color: var(--theme-secondary-color) !important;
+      border: 1px solid var(--theme-secondary-color);
+    }
+
+    /* login modal header close button hover background-color & hover text color */
+    #login .close:hover {
+      background-color: var(--theme-secondary-color);
+      color: var(--theme-primary-color) !important;
+    }
+
+  /* END LOGIN MODAL HEADER */
+
+  /* BEGIN LOGIN MODAL BODY */
+
+    /* login modal body background-color */
+    #login .modal-body {
+      background-color: #ffffff;
+    }
+
+    /* login modal body button styling */
+    #login .modal-body .btn-color {
+      background-color: var(--theme-primary-color);
+      color: var(--theme-secondary-color);
+    }
+
+    /* login modal body button hover styling */
+    #login .modal-body .btn-color:hover {
+      background-color: var(--theme-secondary-color);
+      color: var(--theme-primary-color);
+      border: 1px solid var(--theme-primary-color);
+    }
+
+  /* END LOGIN MODAL BODY */
+
+  /* BEGIN LOGIN MODAL FOOTER */
+
+    /* login modal footer background-color & text color */
+    #login .modal-footer {
+      background-color: var(--theme-primary-color);
+      color: var(--theme-secondary-color);
+    }
+
+    /* login modal footer button styling */
+    #login .modal-footer .btn-color {
+      background-color: var(--theme-primary-color);
+      color: var(--theme-secondary-color);
+      border: 1px solid var(--theme-secondary-color);
+    }
+
+    /* login modal footer button hover styling */
+    #login .modal-footer .btn-color:hover {
+      background-color: var(--theme-secondary-color);
+      color: var(--theme-primary-color);
+    }
+
+    /* login modal footer forgot "password" link color & underlined link */
+    #login .modal-footer a {
+      color: var(--theme-secondary-color);
+      text-decoration: underline;
+    }
+
+    /* login modal footer hover link background-color & hover text color */
+    #login .modal-footer a:hover {
+      background-color: var(--theme-secondary-color);
+      color: var(--theme-primary-color);
+    }
+
+  /* END LOGIN MODAL FOOTER */
+
+/* END LOGIN MODAL: Login modal opens upon click of navbar login link. */
+
+/* BEGIN FORGOT PASSWORD MODAL: Forgot password modal opens upon click of link. */
+
+  /* BEGIN FORGOT PASSWORD MODAL HEADER */
+
+    /* forgot password modal header background-color & text color and title h4 background-color & text color */
+    #forgot-password .modal-header, #forgot-password h4 {
+      background-color: var(--theme-primary-color);
+      color: var(--theme-secondary-color) !important;
+    }
+
+    /* forgot password modal header close button styling */
+    #forgot-password .close {
+      opacity: 1;
+      padding: 5px 7px;
+      color: var(--theme-secondary-color) !important;
+      border: 1px solid var(--theme-secondary-color);
+    }
+
+    /* forgot password modal header close button hover background-color & hover text color */
+    #forgot-password .close:hover {
+      background-color: var(--theme-secondary-color);
+      color: var(--theme-primary-color) !important;
+    }
+
+  /* END FORGOT PASSWORD MODAL HEADER */
+
+  /* BEGIN FORGOT PASSWORD MODAL BODY */
+
+    /* forgot password modal body background-color */
+    #forgot-password .modal-body {
+      background-color: #f2f2f2;
+    }
+
+    /* forgot password modal body button styling */
+    #forgot-password .modal-body .btn-color {
+      background-color: var(--theme-primary-color);
+      color: var(--theme-secondary-color);
+    }
+
+    /* forgot password modal body button hover styling */
+    #forgot-password .modal-body .btn-color:hover {
+      background-color: var(--theme-secondary-color);
+      color: var(--theme-primary-color);
+      border: 1px solid var(--theme-primary-color);
+    }
+
+  /* END FORGOT PASSWORD MODAL BODY */
+
+  /* BEGIN FORGOT PASSWORD MODAL FOOTER */
+
+    /* forgot password modal footer background-color & text color */
+    #forgot-password .modal-footer {
+      background-color: var(--theme-primary-color);
+      color: var(--theme-secondary-color);
+    }
+
+    /* forgot password modal footer button styling */
+    #forgot-password .modal-footer .btn-color {
+      background-color: var(--theme-primary-color);
+      color: var(--theme-secondary-color);
+      border: 1px solid var(--theme-secondary-color);
+    }
+
+    /* forgot password modal footer button hover styling */
+    #forgot-password .modal-footer .btn-color:hover {
+      background-color: var(--theme-secondary-color);
+      color: var(--theme-primary-color);
+    }
+
+  /* END FORGOT PASSWORD MODAL FOOTER */
+
+/* END FORGOT PASSWORD MODAL: Forgot password modal opens upon click of link. */
