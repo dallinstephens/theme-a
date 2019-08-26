@@ -1,3 +1,10 @@
+/* BEGIN LAZY IMAGE LOADING FOR FASTER PAGE LOADS */
+/* the class lazy is removed after the page loads using javascript */
+.lazy {
+  display: none;
+}
+/* END LAZY IMAGE LOADING FOR FASTER PAGE LOADS */
+
 /* theme colors css variables */
 :root {
   --theme-primary-color: #001a4d; /* theme color */
@@ -305,12 +312,6 @@
 
 /* BEGIN ABOUT SECTION */
 
-  /* for lazy load */
-  .texture-square-variation.lazy {
-     background-image: none;
-     background-color: var(--theme-primary-color);
-  }
-
   /* texture square background */
   .texture-square-variation {
     background-image: url("images/texture-square-variation.jpg");
@@ -500,12 +501,6 @@
     z-index: -5;
   }
 
-  /* for lazy load */
-  #big-image-1.lazy:before {
-     background-image: none;
-     background-color: var(--theme-primary-color); 
-  }
-
   #big-image-1:before {
     content: "";
     background: var(--theme-primary-color) url("images/team-collaboration-men.jpg") no-repeat;
@@ -546,12 +541,6 @@
     position: relative;
     height: 662px;
     z-index: -4;
-  }
-
-  /* for lazy load */
-  #big-image-2.lazy:before {
-     background-image: none;
-     background-color: #F1F1FA;
   }
 
   #big-image-2:before {
@@ -595,12 +584,6 @@
     position: relative;
     height: 662px;
     z-index: -3;
-  }
-
-  /* for lazy load */
-  #big-image-3.lazy:before {
-     background-image: none;
-     background-color: #F1F1FA;
   }
 
   #big-image-3:before {
