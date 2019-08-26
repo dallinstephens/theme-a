@@ -1,7 +1,8 @@
 // BEGIN LAZY IMAGE LOADING FOR FASTER PAGE LOADS
-$(document).ready(function() {
+window.onload = function () {
   $('.lazy').removeClass('lazy');
-});
+};
+
 // END LAZY IMAGE LOADING FOR FASTER PAGE LOADS
 
 // BEGIN JQUERY DOCUMENT READY FUNCTION
