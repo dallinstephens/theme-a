@@ -307,10 +307,10 @@
 
   /* texture square background */
   .texture-square-variation {
-    background-image: url("images/texture-square-variation.jpg");
     background-position: center;
     background-repeat: repeat;
     background-size: 150px;
+    background-color: #f2f2f2;
   }
 
 /* END ABOUT SECTION */
@@ -488,16 +488,18 @@
 
 /* BEGIN BIG IMAGE 1 */
 
-  #big-image-1 {
+  #big-image-1-container {
     position: relative;
     height: 662px;
     z-index: -5;
   }
 
-  #big-image-1:before {
-    content: "";
-    background: var(--theme-primary-color) url("images/team-collaboration-men.jpg") no-repeat;
+  #big-image-1 {
     position: fixed;
+    content: "";
+    background-color: var(--theme-primary-color);
+    background-repeat: no-repeat;
+    background-size: 100%;
     background-position: 100% 45%;
     top: 0px;
     left: 0;
@@ -506,21 +508,21 @@
   }
 
   @media only screen and (max-width: 1199px){
-    #big-image-1:before {
+    #big-image-1 {
       background-size: 110%;
       background-position: 70% 45%;
     }
   }
 
   @media only screen and (max-width: 991px){
-    #big-image-1:before {
+    #big-image-1 {
       background-size: 150%;
       background-position: 70% 45%;
     }
   }
 
   @media only screen and (max-width: 767px){
-    #big-image-1:before {
+    #big-image-1 {
       background-size: 210%;
       background-position: 56% 45%;
     }
@@ -530,16 +532,17 @@
 
 /* BEGIN BIG IMAGE 2 */
 
-  #big-image-2 {
+  #big-image-2-container {
     position: relative;
     height: 662px;
     z-index: -4;
   }
 
-  #big-image-2:before {
-    content: "";
-    background: var(--theme-primary-color) url("images/team-collaboration-women.jpg") no-repeat;
+  #big-image-2 {
     position: fixed;
+    content: "";
+    background-color: var(--theme-primary-color);
+    background-repeat: no-repeat;
     background-size: 100%;
     background-position: 20% 40%;
     top: 0px;
@@ -549,21 +552,21 @@
   }
 
   @media only screen and (max-width: 1199px){
-    #big-image-2:before {
+    #big-image-2 {
       background-size: 120%;
       background-position: 68% 0%;
     }
   }
 
   @media only screen and (max-width: 991px){
-    #big-image-2:before {
+    #big-image-2 {
       background-size: 150%;
       background-position: 55% 45%;
     }
   }
 
   @media only screen and (max-width: 767px){
-    #big-image-2:before {
+    #big-image-2 {
       background-size: 230%;
       background-position: 72.8% 60%;
     }
@@ -573,16 +576,18 @@
 
 /* BEGIN BIG IMAGE 3 */
 
-  #big-image-3 {
+  #big-image-3-container {
     position: relative;
     height: 662px;
     z-index: -3;
   }
 
-  #big-image-3:before {
-    content: "";
-    background: var(--theme-primary-color) url("images/code.jpg") no-repeat;
+  #big-image-3 {
     position: fixed;
+    content: "";
+    background-color: var(--theme-primary-color);
+    background-repeat: no-repeat;
+    background-size: 100%;
     background-position: 100% 45%;
     top: 0px;
     left: 0;
@@ -591,27 +596,27 @@
   }
 
   @media only screen and (max-width: 1199px){
-    #big-image-3:before {
+    #big-image-3 {
       background-size: 120%;
       background-position: 68% 0%;
     }
   }
 
   @media only screen and (max-width: 991px){
-    #big-image-3:before {
+    #big-image-3 {
       background-size: 150%;
       background-position: 55% 45%;
     }
   }
 
   @media only screen and (max-width: 767px){
-    #big-image-3:before {
+    #big-image-3 {
       background-size: 230%;
       background-position: 72.8% 60%;
     }
   }
 
-/* END BIG IMAGE 2 */
+/* END BIG IMAGE 3 */
 
 /* BEGIN SIGN UP MODAL: Sign up modal opens upon click of navbar sign up link. */
 
