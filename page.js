@@ -166,12 +166,12 @@ $(document).ready(function(){
   function openWorkImageModal(indicatorNumber) {
     // Get the images and insert them inside the modal carousel
     document.getElementById('workImageModal').style.display = "block";
-    document.getElementById("img01").src = document.getElementById('myImg1').src;
-    document.getElementById("img02").src = document.getElementById('myImg2').src;
-    document.getElementById("img03").src = document.getElementById('myImg3').src;
-    document.getElementById("img04").src = document.getElementById('myImg4').src;
-    document.getElementById("img05").src = document.getElementById('myImg5').src;
-    document.getElementById("img06").src = document.getElementById('myImg6').src;
+    document.getElementById("img01").src = "images/coding-desk.jpg";
+    document.getElementById("img02").src = "images/man-coding-1.jpg";
+    document.getElementById("img03").src = "images/man-coding-2.jpg";
+    document.getElementById("img04").src = "images/man-coding-3.jpg";
+    document.getElementById("img05").src = "images/man-coding-4.jpg";
+    document.getElementById("img06").src = "images/mobile-friendly.jpg";
 
     // remove fadeIn effect when modal opens
     $("#myCarousel").removeClass("slide");
